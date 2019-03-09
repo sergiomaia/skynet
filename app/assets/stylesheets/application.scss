@@ -1,13 +1,48 @@
 @import "bootstrap";
+@import "base";
+@import "font-awesome";
+@import "dataTables.bootstrap4.min";
 
-/* general styles */
-
-body{
-  background-color: #F4ECE2;
+.navbar-skynet .nav-item {
+  margin: 0 20px;
+  font-weight: bold;
 }
 
-.container{
-  margin:15px 0 0 0 auto;
-  text-align: center;
-  background-color: #fff;
+.header-fixed    { overflow-y: auto; height: 100px; }
+.header-fixed th { position: sticky; top: 0; }
+.table-skynet th, .table-skynet td { padding-left: 30px; }
+
+.table-title {
+  padding-bottom: 15px;
+  background: #435d7d;
+  color: #fff;
+  padding: 16px 30px;
+  border-radius: 3px 3px 0 0;
 }
+
+.table-wrapper {
+  border-radius: 3px;
+  border: solid 1px #dee2e6;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+td .action-icon:not(:first-child) { padding-left: 15px; }
+
+table.table-striped tbody tr:nth-of-type(odd) { background-color: #e3e9f0; }
+
+.table-skynet tbody tr td:first-child, .table-skynet thead tr th:first-child {
+  width: 30% !important;
+}
+
+.table-skynet tbody tr td:nth-child(2), .table-skynet thead tr th:nth-child(2),
+.table-skynet tbody tr td:nth-child(3), .table-skynet thead tr th:nth-child(3) {
+  width: 20% !important;
+}
+
+.table-skynet tbody tr td:nth-child(4), .table-skynet thead tr th:nth-child(4),
+.table-skynet tbody tr td:nth-child(5), .table-skynet thead tr th:nth-child(5) {
+  width: 10% !important;
+}
+
+table.table-skynet tr td a.action-icon { display:none;}
+table.table-skynet tr:hover td a.action-icon { display:inline-block;}

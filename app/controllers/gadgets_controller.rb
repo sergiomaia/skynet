@@ -16,11 +16,11 @@ class GadgetsController < ApplicationController
   def create
     @gadget = Gadget.new(gadget_params)
 
-    if @gadget.save
-      redirect_to @gadget, notice: 'Gadget was successfully created.'
-    else
-      render :new
+    unless @gadget.save
+      'Alguma validação falhou'
     end
+
+    redirect_back(fallback_location: root_path)
   end
 
   def update
@@ -37,6 +37,7 @@ class GadgetsController < ApplicationController
   end
 
   private
+
   def set_gadget
     @gadget = Gadget.find(params[:id])
   end
