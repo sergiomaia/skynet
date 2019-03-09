@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_08_004827) do
+ActiveRecord::Schema.define(version: 2019_03_09_013521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -25,6 +25,29 @@ ActiveRecord::Schema.define(version: 2019_03_08_004827) do
     t.string "cellphone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "gadgets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "card"
+    t.string "nds"
+    t.string "model"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "gadget_id"
+    t.integer "plan"
+    t.float "value"
+    t.date "expires_at"
+    t.integer "status"
+    t.string "protocol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_packages_on_customer_id"
+    t.index ["gadget_id"], name: "index_packages_on_gadget_id"
   end
 
 end

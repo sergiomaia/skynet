@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+    <% @gadgets.each do |gadget| %>
+      <%= gadget.card %>
+      <%= gadget.nds %>
+      <%= gadget.model %>
+      <%= gadget.status %>
+      <%= link_to 'Show', gadget %>
+      <%= link_to 'Edit', edit_gadget_path(gadget) %>
+      <%= link_to 'Destroy', gadget, method: :delete, data: { confirm: 'Tem certeza?' } %>
+    <% end %>
+
+<%= link_to 'Cadastrar novo equipamento', new_gadget_path %>
