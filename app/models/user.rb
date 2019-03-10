@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :customers
   has_many :comments
+  has_many :packages, through: :customers
 end
