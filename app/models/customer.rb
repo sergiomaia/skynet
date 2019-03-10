@@ -5,5 +5,6 @@ class Customer < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
   has_many :packages
+  has_many :comments
   has_many :gadgets, through: :packages
 end
