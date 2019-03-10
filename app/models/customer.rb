@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
-  belogns_to :user
+  belongs_to :user
   has_many :packages
   has_many :comments
   has_many :gadgets, through: :packages
