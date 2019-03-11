@@ -2,14 +2,14 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :card %>
+  <div class="form-inputs form-group">
+    <%= f.input :card, class: 'form-control' %>
     <%= f.input :nds %>
     <%= f.input :model %>
     <%= f.input :status %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions form-group">
+    <%= f.button :submit, 'Criar', class: 'btn-success' %>
   </div>
 <% end %>
