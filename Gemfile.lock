@@ -43,9 +43,12 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
-    autoprefixer-rails (9.4.10.1)
+    autoprefixer-rails (9.4.10.2)
       execjs
     bcrypt (3.1.12)
+    best_in_place (3.1.1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.5.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -72,6 +75,8 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)
@@ -199,11 +204,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place (= 3.1.1)
   better_errors (= 2.5)
   binding_of_caller (= 0.8.0)
   bootsnap (= 1.1.0)
   bootstrap (= 4.3.1)
   devise (= 4.6)
+  font-awesome-rails (= 4.7.0.4)
   jquery-rails (= 4.3.3)
   listen (= 3.1.5)
   pg (= 1.0.0)
@@ -219,7 +226,7 @@ DEPENDENCIES
   uglifier (= 4.1.18)
 
 RUBY VERSION
-   ruby 2.7.0p-1
+   ruby 2.6.0p0
 
 BUNDLED WITH
    2.0.1
