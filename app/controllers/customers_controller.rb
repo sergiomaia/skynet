@@ -2,19 +2,19 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = Customer.all
+    @customers = current_user.customers.all
   end
 
   def show;end
 
   def new
-    @customer = Customer.new
+    @customer = current_user.customers.new
   end
 
   def edit;end
 
   def create
-    @customer = Customer.new(customer_params)
+    @customer = current_user.customers.build(customer_params)
 
     if @customer.save
       redirect_to @customer, notice: 'Cliente cadastrado com sucesso.'
@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
   private
 
   def set_customer
-    @customer = Customer.find(params[:id])
+    @customer = current_user.customers.find(params[:id])
   end
 
   def customer_params
