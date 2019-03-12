@@ -1,24 +1,88 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="container-skynet">
+        <div class="">
+          <div class="container-title margin-bottom-50 clearfix">
+            <h2>
+              Equipamento <%= @gadget.card %>
+            </h2>
+          </div>
 
-<p>
-  <strong>Card:</strong>
-  <%= @gadget.card %>
-</p>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Id</td>
+                <td><%= @gadget.id %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>Card</td>
+                <td><%= @gadget.card %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>NDS</td>
+                <td><%= @gadget.nds %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>Modelo</td>
+                <td><%= @gadget.model %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>Estado</td>
+                <td><%= @gadget.status %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>Criação</td>
+                <td><%= @gadget.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>Últ. Modificação</td>
+                <td><%= @gadget.updated_at.strftime('%d/%m/%Y às %H:%m') %></td>
+                <td>
+                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-<p>
-  <strong>Nds:</strong>
-  <%= @gadget.nds %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @gadget.model %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @gadget.status %>
-</p>
-
-<%= link_to 'Edit', edit_gadget_path(@gadget) %> |
-<%= link_to 'Back', gadgets_path %>
+          <div class="margin-top-20">
+            <%= link_to 'Edit', edit_gadget_path(@gadget), class: 'btn btn-warning btn-230' %>
+            <%= link_to 'Voltar', gadgets_path, class: 'btn btn-230 text-dark' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,6 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
 
 .btn {
     padding: 0;
-    width: 230px;
     height: 42px;
     font-size: 16px;
     font-family: 'Oxygen';
@@ -33,6 +32,8 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
     line-height: 38px;
     border-radius: 6px;
 }
+
+  .btn-230 { width: 230px; }
 
 .btn.btn-blue{background: #2976E8;}
 
@@ -54,7 +55,7 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
 .header-fixed th { position: sticky; top: 0; }
 .table-skynet th, .table-skynet td { padding-left: 20px; }
 
-.table-title {
+.container-title {
   margin: -45px -45px 45px -44px;
   padding-bottom: 15px;
   background: #f9f4ef;
@@ -62,11 +63,11 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
   border-radius: 3px 3px 0 0;
 }
 
-.table-wrapper {
-  margin: 30px 0;
+.container-skynet {
   padding: 45px;
   border-radius: 3px;
   background-color: #fff;
+  margin: 30px auto;
   border: solid 1px #dee2e6;
   box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }

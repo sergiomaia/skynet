@@ -3,10 +3,10 @@
 
   <div class="row">
     <div class="col">
-      <div class="table-wrapper">
-        <div class="table-title margin-bottom-50 clearfix">
+      <div class="container-skynet">
+        <div class="container-title margin-bottom-50 clearfix">
           <h2>Equipamentos
-            <button type="button" name="button" class="btn btn-success float-right" data-toggle='modal' data-target='#new-gadget-modal'>
+            <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-gadget-modal'>
               <%=  fa_icon 'plus' %> Novo equipamento
             </button>
           </h2>
@@ -30,10 +30,10 @@
                 <td><%= gadget.status %></td>
                 <td>
                   <%= link_to gadget, class: 'action-icon' do %>
-                    <%=  fa_icon 'eye', data: { toggle: 'tooltip' }, title: 'Detalhes' %>
+                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
                   <% end %>
                   <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
-                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+                    <%=  fa_icon 'eye', data: { toggle: 'tooltip' }, title: 'Detalhes' %>
                   <% end %>
                   <%= link_to gadget, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
                     <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Deletar' %>
