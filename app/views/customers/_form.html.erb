@@ -10,6 +10,13 @@
     <%= f.input :birthdate %>
     <%= f.input :phone %>
     <%= f.input :cellphone %>
+    <%= f.simple_fields_for :packages do |p| %>
+      <%= p.input :plan %>
+      <%= p.input :value %>
+      <%= p.input :expires_at %>
+      <%= p.input :status %>
+      <%= p.input :protocol %>
+    <% end %>
   </div>
 
   <div class="form-actions">
