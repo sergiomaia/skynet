@@ -9,12 +9,16 @@ class CustomersController < ApplicationController
 
   def new
     @customer = current_user.customers.new
+    @customer.packages.build
   end
 
-  def edit;end
+  def edit
+    @customer.packages.build
+  end
 
   def create
     @customer = current_user.customers.build(customer_params)
+    @customer.packages.first.customer_id = current_user.id
 
     if @customer.save
       redirect_to @customer, notice: 'Cliente cadastrado com sucesso.'
@@ -43,6 +47,13 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:name, :email, :cpf, :birthdate, :phone, :cellphone)
+    params.require(:customer).permit(
+      :name,
+      :email,
+      :cpf,
+      :birthdate,
+      :phone,
+      :cellphone,
+      packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy))
   end
 end
