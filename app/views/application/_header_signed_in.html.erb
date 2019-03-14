@@ -1,0 +1,20 @@
+<nav class="navbar navbar-skynet navbar-expand-sm navbar-light flex-nowrap">
+  <div class="container">
+    <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbar_header">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand"><a class="nav-link" href="/"><%=  fa_icon 'home' %> Skynet</a></span>
+    <div class="navbar-collapse collapse justify-content-center w-100" id="navbar_header">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="/customers">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/gadgets">Equipamentos</a></li>
+      </ul>
+    </div>
+    <div class="nav navbar-nav ml-auto justify-content-end w-100">
+      <ul class="navbar-nav ml-auto">
+        <li class="navbar-text"><%= current_user.email %></li>
+        <li class="nav-item"><%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link"  %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
