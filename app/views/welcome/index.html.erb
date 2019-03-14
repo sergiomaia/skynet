@@ -2,8 +2,9 @@
 as assinaturas vencidas, as que vencem hoje e as que estão próximas a vencer, isso daria um melhor controle para usuário.
 Tipo, o cara já entra e ver quais providencias ele precisaria tomar.</p>
 <br>
+<h3>Vencidas</h3>
 <p id="notice"><%= notice %></p>
-  <% @customers.each do |customer| %>
+  <% @late_customers.each do |customer| %>
     <%= customer.name %>
     <%= customer.email %>
     <%= customer.cpf %>
@@ -15,6 +16,18 @@ Tipo, o cara já entra e ver quais providencias ele precisaria tomar.</p>
     <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   <br>
+  <H3>Vencem hoje</h3>
+  <% @late_today_customers.each do |customer| %>
+    <%= customer.name %>
+    <%= customer.email %>
+    <%= customer.cpf %>
+    <%= customer.birthdate %>
+    <%= customer.phone %>
+    <%= customer.cellphone %>
+    <%= link_to 'Show', customer %>
+    <%= link_to 'Edit', edit_customer_path(customer) %>
+    <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <%= link_to 'New Customer', new_customer_path %>
 
 
