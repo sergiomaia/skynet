@@ -6,7 +6,7 @@
     <%= f.input :card, class: 'form-control' %>
     <%= f.input :nds %>
     <%= f.input :model %>
-    <%= f.input :status %>
+    <%= f.input :status, collection: Gadget.statuses %>
   </div>
 
   <div class="form-actions form-group">
