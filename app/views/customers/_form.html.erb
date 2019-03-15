@@ -11,10 +11,10 @@
     <%= f.input :phone %>
     <%= f.input :cellphone %>
     <%= f.simple_fields_for :packages do |p| %>
-      <%= p.input :plan %>
+      <%= p.input :plan, collection: Package.plans %>
       <%= p.input :value %>
       <%= p.input :expires_at %>
-      <%= p.input :status %>
+      <%= p.input :status, collection: Package.statuses %>
       <%= p.input :protocol %>
     <% end %>
   </div>
@@ -23,3 +23,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
