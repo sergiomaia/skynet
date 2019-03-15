@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_140352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.index ["id"], name: "index_customers_on_id", unique: true
   end
 
   create_table "gadgets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
