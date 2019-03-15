@@ -43,6 +43,8 @@ class GadgetsController < ApplicationController
   end
 
   def gadget_params
-    params.require(:gadget).permit(:card, :nds, :model, :status)
+    permited_params = params.require(:gadget).permit(:card, :nds, :model)
+    permited_params[:status] = params[:gadget][:status].to_i
+    permited_params
   end
 end
