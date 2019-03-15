@@ -47,13 +47,17 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(
-      :name,
-      :email,
-      :cpf,
-      :birthdate,
-      :phone,
-      :cellphone,
-      packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy))
+    permited_params = params.require(:customer).permit(
+    :name,
+    :email,
+    :cpf,
+    :birthdate,
+    :phone,
+    :cellphone,
+    packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy))
+    permited_params[:packages_attributes]["0"][:plan] = permited_params[:packages_attributes]["0"][:plan].to_i
+    permited_params[:packages_attributes]["0"][:status] = permited_params[:packages_attributes]["0"][:status].to_i
+    binding.pry
+    permited_params
   end
 end
