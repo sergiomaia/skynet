@@ -27,7 +27,7 @@ class GadgetsController < ApplicationController
     if @gadget.update(gadget_params)
       redirect_to @gadget, notice: 'Equipamento foi atualizado com sucesso.'
     else
-      render :edit
+      redirect_back(fallback_location: root_path, notice: @gadget.errors.full_messages.join(', '))
     end
   end
 
