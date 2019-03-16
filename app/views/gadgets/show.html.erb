@@ -78,8 +78,11 @@
           </table>
 
           <div class="margin-top-20">
-            <%= link_to 'Edit', edit_gadget_path(@gadget), class: 'btn btn-warning btn-230' %>
-            <%= link_to 'Voltar', gadgets_path, class: 'btn btn-230 text-dark' %>
+            <%= link_to 'Edit', edit_gadget_path(@gadget), class: 'btn btn-warning btn-210' %>
+            <%= link_to 'Voltar', gadgets_path, class: 'btn btn-210 text-dark' %>
+            <div class="float-right">
+              <%= link_to 'Remover', gadget_path(@gadget), class: 'btn btn-210 btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete %>
+            </div>
           </div>
         </div>
       </div>
