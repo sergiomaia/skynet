@@ -47,8 +47,17 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
 
 
 .navbar-skynet { background-color: #FBF8F4; border: solid 1px #dee2e6; }
-.navbar-skynet a { color: #000; }
+.navbar-skynet a { color: #3c4f57; }
 .navbar-skynet .nav-item { margin: 0 20px; font-weight: bold; }
+.navbar-text {
+  display: inline-block;
+  padding-top: 0.7rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #3c4f57;
+}
 
 .header-fixed    { overflow-y: auto; height: 100px; }
 .header-fixed th { position: sticky; top: 0; }
