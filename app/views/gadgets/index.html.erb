@@ -1,51 +1,45 @@
-<div class="container">
+<div class="container container-skynet">
   <p id="notice"><%= notice %></p>
-
-  <div class="row">
-    <div class="col">
-      <div class="container-skynet">
-        <div class="container-title margin-bottom-50 clearfix">
-          <h2>Equipamentos
-            <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-gadget-modal'>
-              <%=  fa_icon 'plus' %> Novo equipamento
-            </button>
-          </h2>
-        </div>
-        <table class="table table-skynet table-striped table-hover header-fixed margin-none">
-          <thead>
-            <tr>
-              <th>Cartão</th>
-              <th>NDS</th>
-              <th>Modelo</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @gadgets.each do |gadget| %>
-              <tr>
-                <td><%= link_to gadget.card, gadget %></td>
-                <td><%= gadget.nds %></td>
-                <td><%= gadget.model %></td>
-                <td><%= gadget.status %></td>
-                <td>
-                  <%= link_to gadget, class: 'action-icon' do %>
-                    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
-                  <% end %>
-                  <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
-                    <%=  fa_icon 'eye', data: { toggle: 'tooltip' }, title: 'Detalhes' %>
-                  <% end %>
-                  <%= link_to gadget, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
-                    <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Deletar' %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="container-title margin-bottom-50 clearfix">
+    <h2>
+      Equipamentos
+      <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-gadget-modal'>
+        <%=  fa_icon 'plus' %> Novo equipamento
+      </button>
+    </h2>
   </div>
+  <table class="table table-skynet table-striped table-hover header-fixed margin-none">
+    <thead>
+      <tr>
+        <th>Cartão</th>
+        <th>NDS</th>
+        <th>Modelo</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @gadgets.each do |gadget| %>
+        <tr>
+          <td><%= link_to gadget.card, gadget %></td>
+          <td><%= gadget.nds %></td>
+          <td><%= gadget.model %></td>
+          <td><%= gadget.status %></td>
+          <td>
+            <%= link_to gadget, class: 'action-icon' do %>
+              <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+            <% end %>
+            <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
+              <%=  fa_icon 'eye', data: { toggle: 'tooltip' }, title: 'Detalhes' %>
+            <% end %>
+            <%= link_to gadget, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
+              <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Deletar' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= render 'gadgets/new_modal' %>

@@ -7,7 +7,7 @@
 
 body {font-family: 'Oxygen', sans-serif; font-weight: 100; font-size: 14px; color: #5D616B; background-color: #F5EFE6;}
 p, span, h1, h2, h3, h4, h5, h6, address {padding: 0px; margin: 0px;}
-h1, h2, h3, h4, h5{font-family: 'Oxygen', sans-serif; color: #273C47;}
+h1, h2, h3, h4, h5{font-family: 'Oxygen', sans-serif; color: #273C47; font-weight: bold;}
 h1{font-size: 36px; font-weight: bold; line-height: 44px;}
 h2{font-size: 28px; line-height: 34px;}
 h3{font-size: 22px; line-height: 30px;}
@@ -17,7 +17,7 @@ button{cursor: pointer;}
 ul {padding: 0px; margin: 0px;}
 textarea{resize: none;}
 li { list-style: none; padding: 0px; margin: 0px; }
-a{color: #2976e8; line-height: 25px;}
+a{color: #2976e8; line-height: 25px; font-weight: bold;}
 a .fa{color: #5D616B}
 a, a:hover, a:focus { text-decoration: none; outline: none;}
 
@@ -31,7 +31,10 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
     outline: none;
     line-height: 38px;
     border-radius: 6px;
+    max-width: 100%;
 }
+
+.form-group .input { margin-bottom: 10px; }
 
 .btn-230 { width: 230px; }
 
@@ -42,25 +45,21 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
 .btn.btn-blue:active, .btn.btn-blue:focus{background: #2B319E; color:#fff; outline: none;}
 
 
-.navbar-skynet { background-color: #FBF8F4; }
-
+.navbar-skynet { background-color: #FBF8F4; border: solid 1px #dee2e6; }
 .navbar-skynet a { color: #000; }
-
-.navbar-skynet .nav-item {
-  margin: 0 20px;
-  font-weight: bold;
-}
+.navbar-skynet .nav-item { margin: 0 20px; font-weight: bold; }
 
 .header-fixed    { overflow-y: auto; height: 100px; }
 .header-fixed th { position: sticky; top: 0; }
 .table-skynet th, .table-skynet td { padding-left: 20px; }
 
 .container-title {
-  margin: -45px -45px 45px -44px;
+  margin: -46px -46px 45px -46px;
   padding-bottom: 15px;
   background: #f9f4ef;
   padding: 26px 30px;
   border-radius: 3px 3px 0 0;
+  border: solid 1px #dee2e6;
 }
 
 .container-skynet {
