@@ -16,16 +16,16 @@ class GadgetsController < ApplicationController
   def create
     @gadget = Gadget.new(gadget_params)
 
-    unless @gadget.save
-      'Alguma validação falhou'
+    if @gadget.save
+      redirect_to @gadget, notice: 'Equipamento foi criado com sucesso.'
+    else
+      redirect_back(fallback_location: root_path, notice: @gadget.errors.full_messages.join(', '))
     end
-
-    redirect_back(fallback_location: root_path)
   end
 
   def update
     if @gadget.update(gadget_params)
-      redirect_to @gadget, notice: 'Gadget was successfully updated.'
+      redirect_to @gadget, notice: 'Equipamento foi atualizado com sucesso.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class GadgetsController < ApplicationController
 
   def destroy
     @gadget.destroy
-    redirect_to gadgets_url, notice: 'Gadget was successfully destroyed.'
+    redirect_to gadgets_url, notice: 'Equipamento foi removido com sucesso.'
   end
 
   private
