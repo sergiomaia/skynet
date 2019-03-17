@@ -19,7 +19,7 @@ button{cursor: pointer;}
 ul {padding: 0px; margin: 0px;}
 textarea{resize: none;}
 li { list-style: none; padding: 0px; margin: 0px; }
-a{color: #2976e8; line-height: 25px; font-weight: bold;}
+a{color: #5e98ee; line-height: 25px; font-weight: bold;}
 a .fa{color: #5D616B}
 a, a:hover, a:focus { text-decoration: none; outline: none;}
 
@@ -41,7 +41,7 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
 .btn-230 { width: 230px; }
 .btn-210 { width: 210px; }
 
-.btn.btn-blue{background: #2976E8;}
+.btn.btn-blue{background: #5e98ee;}
 
 .btn.btn-blue:hover{color:#fff; background: #3362A7; transition: 0.3s;}
 
@@ -103,7 +103,7 @@ table.table-striped tbody tr:nth-of-type(odd) { background-color: #FBF8F4; }
 
 table.table-skynet tr td a.action-icon { pointer-events:none; color: #ddd; }
 table.table-skynet tr td a.action-icon .fa { color: #ddd; }
-table.table-skynet tr:hover td a.action-icon .fa { color: #2976e8; }
-table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #2976e8; }
+table.table-skynet tr:hover td a.action-icon .fa { color: #5e98ee; }
+table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #5e98ee; }
 
 .form-horizontal { div.checkbox.inline { .control-label { text-align: left; } } }
