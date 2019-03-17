@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require popper
+//= require best_in_place
 //= require bootstrap
 //= require turbolinks
 //= require plugins/jquery.dataTables.min

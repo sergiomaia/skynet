@@ -3,10 +3,10 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs form-group">
-    <%= f.input :card, class: 'form-control' %>
-    <%= f.input :nds %>
-    <%= f.input :model %>
-    <%= f.input :status, collection: Gadget.statuses %>
+    <%= f.input :card, label: false, class: 'form-control' %>
+    <%= f.input :nds, label: false %>
+    <%= f.input :model, label: false %>
+    <%= f.input :status, collection: Gadget.statuses, prompt: 'Selecione o estado', label: false; %>
   </div>
 
   <div class="form-actions form-group">

@@ -101,7 +101,9 @@ table.table-striped tbody tr:nth-of-type(odd) { background-color: #FBF8F4; }
   width: 12% !important;
 }
 
-table.table-skynet tr td a.action-icon { display:none;}
-table.table-skynet tr:hover td a.action-icon { display:inline-block;}
+table.table-skynet tr td a.action-icon { pointer-events:none; color: #ddd; }
+table.table-skynet tr td a.action-icon .fa { color: #ddd; }
+table.table-skynet tr:hover td a.action-icon .fa { color: #2976e8; }
+table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #2976e8; }
 
 .form-horizontal { div.checkbox.inline { .control-label { text-align: left; } } }
