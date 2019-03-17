@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :gadgets
-  resources :customers
+
+  resources :customers do
+    resources :comments, only: [:create, :destroy]
+  end
 
   root to: 'welcome#index'
 end
