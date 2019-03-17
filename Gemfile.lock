@@ -43,7 +43,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
-    autoprefixer-rails (9.4.10.2)
+    autoprefixer-rails (9.5.0)
       execjs
     bcrypt (3.1.12)
     best_in_place (3.1.1)
@@ -187,6 +187,8 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    trix (0.10.1)
+      rails
     turbolinks (5.0.0)
       turbolinks-source (~> 5)
     turbolinks-source (5.2.0)
@@ -222,6 +224,7 @@ DEPENDENCIES
   simple_form (= 4.1)
   spring-watcher-listen (= 2.0.0)
   sprockets-rails (= 3.2.1)
+  trix
   turbolinks (= 5)
   uglifier (= 4.1.18)
 
