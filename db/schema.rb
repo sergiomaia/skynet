@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 2019_03_10_140352) do
 
   create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
-    t.integer "customer_id"
+    t.uuid "user_id"
+    t.uuid "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_comments_on_customer_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "customers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -33,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_140352) do
     t.string "cellphone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.uuid "user_id"
     t.index ["id"], name: "index_customers_on_id", unique: true
   end
 
@@ -47,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_03_10_140352) do
   end
 
   create_table "packages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "customer_id"
-    t.bigint "gadget_id"
+    t.uuid "customer_id"
+    t.uuid "gadget_id"
     t.integer "plan"
     t.float "value"
     t.date "expires_at"
