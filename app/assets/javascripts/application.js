@@ -18,4 +18,5 @@
 //= require turbolinks
 //= require plugins/jquery.dataTables.min
 //= require plugins/dataTables.bootstrap4.min
+//= require trix
 //= require_tree .
