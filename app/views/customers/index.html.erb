@@ -1,15 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="container container-skynet">
+  <div class="container-title margin-bottom-50 clearfix">
+    <h2>
+      Clientes
+      <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-customer-modal'>
+        <%=  fa_icon 'plus' %> Novo cliente
+      </button>
+    </h2>
+  </div>
 
-  <% @customers.each do |customer| %>
-    <%= customer.name %>
-    <%= customer.email %>
-    <%= customer.cpf %>
-    <%= customer.birthdate %>
-    <%= customer.phone %>
-    <%= customer.cellphone %>
-    <%= link_to 'Show', customer %>
-    <%= link_to 'Edit', edit_customer_path(customer) %>
-    <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <%= render 'notice' %>
 
-<%= link_to 'New Customer', new_customer_path %>
+  <table class="table table-skynet table-striped table-hover header-fixed margin-none">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Celular</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= link_to customer.name, customer %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.phone %></td>
+          <td><%= customer.cellphone %></td>
+          <td>
+            <%= link_to customer, class: 'action-icon' do %>
+              <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
+            <% end %>
+            <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-customer-modal" } do %>
+              <%=  fa_icon 'eye', data: { toggle: 'tooltip' }, title: 'Detalhes' %>
+            <% end %>
+            <%= link_to customer, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
+              <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Deletar' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'customers/new_modal' %>
+<%= render 'customers/info_modal' %>

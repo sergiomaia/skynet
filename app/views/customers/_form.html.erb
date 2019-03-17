@@ -1,15 +1,14 @@
-
-<%= simple_form_for(@customer) do |f| %>
+<%= simple_form_for(Customer.new) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :cpf %>
-    <%= f.input :birthdate %>
-    <%= f.input :phone %>
-    <%= f.input :cellphone %>
+  <div class="form-inputs form-group">
+    <%= f.input :name, label: false %>
+    <%= f.input :email, label: false %>
+    <%= f.input :cpf, label: false %>
+    <%= f.input :birthdate, label: false %>
+    <%= f.input :phone, label: false %>
+    <%= f.input :cellphone, label: false %>
     <%= f.simple_fields_for :packages do |p| %>
       <%= p.input :plan, collection: Package.plans %>
       <%= p.input :value %>
@@ -19,8 +18,7 @@
     <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions form-group">
+    <%= f.button :submit, 'Criar', class: 'btn-success' %>
   </div>
 <% end %>
-
