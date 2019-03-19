@@ -187,8 +187,8 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
-    trix (0.10.1)
-      rails
+    trix-rails (2.0.0)
+      rails (> 4.1, < 6.0)
     turbolinks (5.0.0)
       turbolinks-source (~> 5)
     turbolinks-source (5.2.0)
@@ -224,12 +224,12 @@ DEPENDENCIES
   simple_form (= 4.1)
   spring-watcher-listen (= 2.0.0)
   sprockets-rails (= 3.2.1)
-  trix
+  trix-rails
   turbolinks (= 5)
   uglifier (= 4.1.18)
 
 RUBY VERSION
-   ruby 2.6.0p0
+   ruby 2.7.0p-1
 
 BUNDLED WITH
    2.0.1
