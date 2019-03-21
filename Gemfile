@@ -29,4 +29,5 @@ group :development do
   gem 'spring-watcher-listen', '2.0.0'
   gem "better_errors", '2.5'
   gem 'binding_of_caller', '0.8.0'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
