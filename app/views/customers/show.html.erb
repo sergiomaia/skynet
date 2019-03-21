@@ -1,40 +1,101 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
+<div class="container container-skynet">
+  <div class="container-title margin-bottom-50 clearfix">
+    <h2>
+      Cliente <%= @customer.name %>
+    </h2>
+  </div>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @customer.name %>
-  </p>
+  <table class="table table-skynet">
+    <tbody>
+      <tr>
+        <td>Nome</td>
+        <td><%= best_in_place @customer, :name, :as => :input, activator: '#name_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'name_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td><%= best_in_place @customer, :email, :as => :input, activator: '#email_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'email_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>CPF</td>
+        <td><%= best_in_place @customer, :cpf, :as => :input, activator: '#cpf_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'cpf_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Data de nasc.</td>
+        <td><%= best_in_place @customer, :birthdate, :as => :input, activator: '#birthdate_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'birthdate_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Data de nasc.</td>
+        <td><%= best_in_place @customer, :birthdate, :as => :input, activator: '#birthdate_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'birthdate_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Telefone</td>
+        <td><%= best_in_place @customer, :phone, :as => :input, activator: '#phone_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'phone_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Celular</td>
+        <td><%= best_in_place @customer, :cellphone, :as => :input, activator: '#cellphone_activator' %></td>
+        <td>
+          <%= link_to "#", id: 'cellphone_activator', class: 'action-icon' do %>
+            <%=  fa_icon 'pencil' %> Editar
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Criação</td>
+        <td><%= @customer.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Últ. Modificação</td>
+        <td><%= @customer.updated_at.strftime('%d/%m/%Y às %H:%m') %></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @customer.email %>
-  </p>
-
-  <p>
-    <strong>Cpf:</strong>
-    <%= @customer.cpf %>
-  </p>
-
-  <p>
-    <strong>Birthdate:</strong>
-    <%= @customer.birthdate %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= @customer.phone %>
-  </p>
-
-  <p>
-    <strong>Cellphone:</strong>
-    <%= @customer.cellphone %>
-  </p>
-
-  <%= link_to 'Edit', edit_customer_path(@customer) %> |
-  <%= link_to 'Back', customers_path %>
-
-  <%= render 'comments/comments_form' %>
-  <%= @customer.comments.count %> Comentários
-  <%= render @customer.comments %>
+  <div class="margin-top-20">
+    <%= link_to customers_path, class: 'btn btn-small text-dark' do %>
+      <%=  fa_icon 'arrow-left' %> Voltar
+    <% end %>
+    <div class="float-right">
+      <%= link_to 'Remover', customer_path(@customer), class: 'btn btn-210 btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete %>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+  });
+</script>
