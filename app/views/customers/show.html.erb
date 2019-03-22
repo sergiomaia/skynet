@@ -44,15 +44,6 @@
         </td>
       </tr>
       <tr>
-        <td>Data de nasc.</td>
-        <td><%= best_in_place @customer, :birthdate, :as => :input, activator: '#birthdate_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'birthdate_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
         <td>Telefone</td>
         <td><%= best_in_place @customer, :phone, :as => :input, activator: '#phone_activator' %></td>
         <td>
