@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   belongs_to :user
   has_many :packages, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :payments, dependent: :destroy
   has_many :gadgets, through: :packages
 
   accepts_nested_attributes_for :packages, allow_destroy: true
