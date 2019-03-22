@@ -3,6 +3,8 @@ class CustomersController < ApplicationController
 
   def index
     @customers = current_user.customers.all
+    @customer = current_user.customers.new
+    @customer.packages.build
   end
 
   def show;end
@@ -18,7 +20,6 @@ class CustomersController < ApplicationController
 
   def create
     @customer = current_user.customers.build(customer_params)
-    @customer.packages.first.customer_id = current_user.id
 
     if @customer.save
       redirect_to @customer, notice: 'Cliente cadastrado com sucesso.'
@@ -54,7 +55,7 @@ class CustomersController < ApplicationController
     :birthdate,
     :phone,
     :cellphone,
-    packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy))
+    { packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy) })
     permited_params[:packages_attributes]["0"][:plan] = permited_params[:packages_attributes]["0"][:plan].to_i
     permited_params[:packages_attributes]["0"][:status] = permited_params[:packages_attributes]["0"][:status].to_i
     permited_params
