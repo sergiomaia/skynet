@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_03_22_002153) do
   end
 
   create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.boolean "paid"
+    t.boolean "paid", default: false
     t.date "paid_at"
     t.uuid "customer_id"
     t.datetime "created_at", null: false
