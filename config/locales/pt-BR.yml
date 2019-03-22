@@ -25,6 +25,12 @@ pt-BR:
         birthdate: 'Data de nasc.'
         phone: 'Telefone'
         cellphone: 'Celular'
+      package:
+        plan: Plano
+        value: Valor
+        expires_at: Data de venc.
+        status: Estado
+        protocol: Protocolo
   date:
     abbr_day_names:
     - Dom
