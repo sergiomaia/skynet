@@ -1,42 +1,42 @@
-<p id="notice"><%= notice %></p>
-<H3>Últimos clientes cadastrados</h3>
-<% @last_registered_customers.each do |customer| %>
-    <%= customer.name %>
-    <%= customer.email %>
-    <%= customer.cpf %>
-    <%= customer.birthdate %>
-    <%= customer.phone %>
-    <%= customer.cellphone %>
-    <%= link_to 'Show', customer %>
-    <%= link_to 'Edit', edit_customer_path(customer) %>
-    <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-  <br>
-  <h3>Vencidas</h3>
-  <% @late_customers.each do |customer| %>
-    <%= customer.name %>
-    <%= customer.email %>
-    <%= customer.cpf %>
-    <%= customer.birthdate %>
-    <%= customer.phone %>
-    <%= customer.cellphone %>
-    <%= link_to 'Show', customer %>
-    <%= link_to 'Edit', edit_customer_path(customer) %>
-    <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-  <br>
-  <H3>Vencem hoje</h3>
-  <% @late_today_customers.each do |customer| %>
-    <%= customer.name %>
-    <%= customer.email %>
-    <%= customer.cpf %>
-    <%= customer.birthdate %>
-    <%= customer.phone %>
-    <%= customer.cellphone %>
-    <%= link_to 'Show', customer %>
-    <%= link_to 'Edit', edit_customer_path(customer) %>
-    <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<%= link_to 'New Customer', new_customer_path %>
-
-
+<div class="container container-skynet">
+  <p id="notice"><%= notice %></p>
+  <H3>Últimos clientes cadastrados</h3>
+  <% @last_registered_customers.each do |customer| %>
+      <%= customer.name %>
+      <%= customer.email %>
+      <%= customer.cpf %>
+      <%= customer.birthdate %>
+      <%= customer.phone %>
+      <%= customer.cellphone %>
+      <%= link_to 'Show', customer %>
+      <%= link_to 'Edit', edit_customer_path(customer) %>
+      <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <br>
+    <h3>Vencidas</h3>
+    <% @late_customers.each do |customer| %>
+      <%= customer.name %>
+      <%= customer.email %>
+      <%= customer.cpf %>
+      <%= customer.birthdate %>
+      <%= customer.phone %>
+      <%= customer.cellphone %>
+      <%= link_to 'Show', customer %>
+      <%= link_to 'Edit', edit_customer_path(customer) %>
+      <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <br>
+    <H3>Vencem hoje</h3>
+    <% @late_today_customers.each do |customer| %>
+      <%= customer.name %>
+      <%= customer.email %>
+      <%= customer.cpf %>
+      <%= customer.birthdate %>
+      <%= customer.phone %>
+      <%= customer.cellphone %>
+      <%= link_to 'Show', customer %>
+      <%= link_to 'Edit', edit_customer_path(customer) %>
+      <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <%= link_to 'New Customer', new_customer_path %>
+</div>
