@@ -5,6 +5,8 @@
     </h2>
   </div>
 
+  <%= render 'notice' %>
+
   <table class="table table-skynet">
     <tbody>
       <tr>
@@ -74,15 +76,47 @@
     </tbody>
   </table>
 
-  <div class="margin-top-20">
-    <%= link_to customers_path, class: 'btn btn-small text-dark' do %>
-      <%=  fa_icon 'arrow-left' %> Voltar
-    <% end %>
-    <div class="float-right">
-      <%= link_to 'Remover', customer_path(@customer), class: 'btn btn-210 btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete %>
+  <table class="table table-skynet margin-top-30">
+    <thead>
+      <tr>
+        <td colspan="3"><strong>Equipamentos</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @customer.gadgets.any? %>
+        <% @customer.gadgets.each do |gadget| %>
+          <tr>
+            <td><%= link_to gadget.card, gadget %></td>
+            <td><% gadget.nds %></td>
+            <td><%= 'Ação' %></td>
+          </tr>
+        <% end %>
+      <% else %>
+      <tr>
+        <td colspan="3">Não há equipamentos alocados à este cliente</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="row margin-top-20 text-center">
+    <div class="col-sm-4 margin-bottom-xs-10">
+      <%= link_to customers_path, class: 'btn btn-small text-dark' do %>
+        <%=  fa_icon 'arrow-left' %> Voltar
+      <% end %>
+    </div>
+    <div class="col-sm-4 margin-bottom-xs-10">
+      <button type="button" name="button" class="btn btn-210 btn-success" data-toggle='modal' data-target='#set-gadget-modal'>
+        <%=  fa_icon 'plus' %> Alocar equipamento
+      </button>
+    </div>
+    <div class="col-sm-4">
+      <%= link_to 'Deleter cliente', customer_path(@customer), class: 'btn btn-210 btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete %>
     </div>
   </div>
 </div>
+<%# FIXME should user current_user.gadgets %>
+<%= render 'gadgets/set_modal', gadgets: Gadget.all.inactive, customer: @customer, gadget_allocation: @gadget_allocation %>
 
 <script type="text/javascript">
   $(document).ready(function() {

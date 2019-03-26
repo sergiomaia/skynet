@@ -44,6 +44,17 @@
         </td>
       </tr>
       <tr>
+        <td>Cliente</td>
+        <td>
+          <% if @gadget.customer.present? %>
+            <%= link_to @gadget.customer.name, @gadget.customer %>
+          <% else %>
+            -
+          <% end %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
         <td>Criação</td>
         <td><%= @gadget.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
         <td></td>

@@ -1,0 +1,24 @@
+<div class="modal fade" id="set-gadget-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content padding-30">
+      <div class="modal-header">
+        <h5>Alocar equipamento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body margin-top-30">
+        <%= simple_form_for gadget_allocation do |f| %>
+          <div class="form-inputs form-group">
+            <%= f.input :customer_id, as: :hidden %>:
+            <%= f.input :gadget_id, collection: gadgets.inactive.map { |gadget| [gadget.card, gadget.id] }, prompt: 'Selecione um equipamento', label: false; %>
+          </div>
+
+          <div class="form-actions form-group">
+            <%= f.button :submit, 'Alocar', class: 'btn-success' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

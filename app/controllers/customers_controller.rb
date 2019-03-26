@@ -7,7 +7,9 @@ class CustomersController < ApplicationController
     @customer.packages.build
   end
 
-  def show;end
+  def show
+    @gadget_allocation = GadgetAllocation.new(customer_id: @customer.id)
+  end
 
   def new
     @customer = current_user.customers.new

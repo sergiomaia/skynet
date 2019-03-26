@@ -19,7 +19,6 @@
       <%= p.input :value, label: false %>
       <%= p.input :expires_at, label: false, as: :string, input_html: { class: 'date' } %>
       <%= p.input :status, label: false, collection: Package.statuses, prompt: 'Selecione o estado' %>
-      <%= p.input :protocol, label: false %>
     <% end %>
   </div>
 
