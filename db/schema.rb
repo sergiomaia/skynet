@@ -40,26 +40,25 @@ ActiveRecord::Schema.define(version: 2019_03_26_005646) do
   end
 
   create_table "gadgets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "customer_id"
     t.string "card"
     t.string "nds"
     t.string "model"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_gadgets_on_customer_id"
   end
 
   create_table "packages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "customer_id"
-    t.uuid "gadget_id"
     t.integer "plan"
     t.float "value"
     t.date "expires_at"
     t.integer "status"
-    t.string "protocol"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_packages_on_customer_id"
-    t.index ["gadget_id"], name: "index_packages_on_gadget_id"
   end
 
   create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

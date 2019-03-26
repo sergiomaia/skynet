@@ -1,5 +1,5 @@
 class Gadget < ApplicationRecord
-  has_many :packages
+  belongs_to :customer, optional: true
 
   validates :card, :nds, :status, presence: true
   enum status: { inativo: 0, ativo: 1 }

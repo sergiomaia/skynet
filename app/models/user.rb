@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :customers, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :packages, through: :customers
+  has_many :gadgets, through: :customers
 end
