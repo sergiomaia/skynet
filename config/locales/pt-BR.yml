@@ -1,11 +1,24 @@
 pt-BR:
   activerecord:
+    models:
+      user: Usuário
+      customer: Cliente
+      gadget: Equipamento
+      package: Plano
+      protocol: Protocolo
     attributes:
       gadget:
         nds: NDS
         card: Cartão
         model: Modelo
         status: Estado
+      customer:
+        name: Nome
+        email: Email
+        cpf: CPF
+        birthdate: Data de nasc.
+        phone: Telefone
+        cellphone: Celular
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
