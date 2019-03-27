@@ -23,7 +23,10 @@
     <tbody>
       <% @customers.each do |customer| %>
         <tr>
-          <td><%= link_to customer.name, customer %></td>
+          <td>
+            <%= link_to customer.name, customer %> <%= link_to '(ND56)', '/' %>
+            <p class="font-italic"><%= customer.address %></p>
+          </td>
           <td><%= customer.email %></td>
           <td><%= customer.phone %></td>
           <td><%= customer.cellphone %></td>
