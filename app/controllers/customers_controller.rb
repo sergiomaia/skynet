@@ -54,6 +54,7 @@ class CustomersController < ApplicationController
     :name,
     :email,
     :cpf,
+    :address,
     :birthdate,
     :phone,
     :cellphone,
