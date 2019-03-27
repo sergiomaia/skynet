@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_03_26_005646) do
   create_table "customers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "address"
     t.string "cpf"
     t.date "birthdate"
     t.string "phone"
