@@ -3,6 +3,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
     create_table :customers, id: :uuid, type: :uuid do |t|
       t.string :name
       t.string :email
+      t.string :address
       t.string :cpf
       t.date   :birthdate
       t.string :phone
