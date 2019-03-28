@@ -17,6 +17,7 @@ pt-BR:
         email: Email
         cpf: CPF
         birthdate: Data de nasc.
+        address: Endereço
         phone: Telefone
         cellphone: Celular
     errors:
@@ -28,17 +29,18 @@ pt-BR:
   simple_form:
     placeholders:
       gadget:
-        card: 'Cartão'
-        nds: 'NDS'
-        model: 'Modelo'
+        card: Cartão
+        nds: NDS
+        model: Modelo
       customer:
-        name: 'Nome'
-        email: 'Email'
-        cpf: 'CPF'
-        birthdate: 'Data de nasc.'
-        phone: 'Telefone'
-        cellphone: 'Celular'
-      package:
+        name: Nome
+        email: Email
+        cpf: CPF
+        birthdate: Data de nasc.
+        address: Endereço
+        phone: Telefone
+        cellphone: Celular
+      packages:
         plan: Plano
         value: Valor
         expires_at: Data de venc.
