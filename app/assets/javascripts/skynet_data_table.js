@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  if (!!$('.table-skynet')) {
-    $('.table-skynet').DataTable({
+  if (!!$('.table-skynet-index')) {
+    $('.table-skynet-index').DataTable({
       "language": {
         "lengthMenu": "Mostrando _MENU_ entradas por página",
         "zeroRecords": "Desculpe - nenhuma entrada foi encontrada",
