@@ -3,23 +3,23 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs form-group">
-    <%= f.input :name, label: false %>
-    <%= f.input :email, label: false %>
-    <%= f.input :cpf, label: false, input_html: { class: 'cpf_document' } %>
-    <%= f.input :address, label: false %>
-    <%= f.input :birthdate, label: false, as: :string, input_html: { class: 'date' } %>
-    <%= f.input :phone, label: false, input_html: { class: 'phone' } %>
-    <%= f.input :cellphone, label: false, input_html: { class: 'phone' } %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :cpf, input_html: { class: 'cpf_document' } %>
+    <%= f.input :address %>
+    <%= f.input :birthdate, as: :string, input_html: { class: 'date' } %>
+    <%= f.input :phone, input_html: { class: 'phone' } %>
+    <%= f.input :cellphone, input_html: { class: 'phone' } %>
 
     <div class="padding-bottom-15 padding-top-20">
       <h5>Plano</h5>
     </div>
 
     <%= f.simple_fields_for :packages do |p| %>
-      <%= p.input :plan, label: false, collection: Package.plans, prompt: 'Selecione o plano' %>
-      <%= p.input :value, label: false %>
-      <%= p.input :expires_at, label: false, as: :string, input_html: { class: 'date' } %>
-      <%= p.input :status, label: false, collection: Package.statuses, prompt: 'Selecione o estado' %>
+      <%= p.input :plan, collection: Package.plans, prompt: 'Selecione o plano' %>
+      <%= p.input :value %>
+      <%= p.input :expires_at, as: :string, input_html: { class: 'date' } %>
+      <%= p.input :status, collection: Package.statuses, prompt: 'Selecione o estado' %>
     <% end %>
   </div>
 
