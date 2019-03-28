@@ -31,9 +31,6 @@
             <%= link_to gadget, class: 'action-icon' do %>
               <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
             <% end %>
-            <%= link_to "#", class: 'action-icon', data: {toggle: "modal", target: "#info-gadget-modal" } do %>
-              <%=  fa_icon 'eye', data: { toggle: 'tooltip' }, title: 'Detalhes' %>
-            <% end %>
             <%= link_to gadget, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
               <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Deletar' %>
             <% end %>
@@ -45,4 +42,3 @@
 </div>
 
 <%= render 'gadgets/new_modal' %>
-<%= render 'gadgets/info_modal' %>
