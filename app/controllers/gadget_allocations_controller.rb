@@ -4,7 +4,7 @@ class GadgetAllocationsController < ApplicationController
     @gadget_allocation = GadgetAllocation.new(gadget_allocation_params)
     @gadget_allocation.register
     if @gadget_allocation.valid?
-      flash[:notice] = "Equipamento alocado com sucesso."
+      flash[:notice] = "Equipamento associado com sucesso."
     else
       flash[:notice] = @gadget_allocation.errors.full_messages.join(', ')
     end

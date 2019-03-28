@@ -7,11 +7,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body margin-top-30">
+      <div class="modal-body margin-top-10">
         <%= simple_form_for gadget_allocation do |f| %>
           <div class="form-inputs form-group">
-            <%= f.input :customer_id, as: :hidden %>:
-            <%= f.input :gadget_id, collection: gadgets.inactive.map { |gadget| [gadget.card, gadget.id] }, prompt: 'Selecione um equipamento'; %>
+            <%= f.input :customer_id, as: :hidden %>
+            <%= f.input :gadget_id, collection: gadgets.map { |gadget| [gadget.card, gadget.id] }, prompt: 'Selecione um equipamento' %>
           </div>
 
           <div class="form-actions form-group">

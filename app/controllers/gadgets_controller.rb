@@ -23,6 +23,12 @@ class GadgetsController < ApplicationController
     end
   end
 
+  def dealloc
+    @gadget = Gadget.find(params[:gadget_id])
+    @gadget.update(customer_id: nil)
+    redirect_back(fallback_location: root_path, notice: "Equipamento desassociado com sucesso.")
+  end
+
   def update
     if @gadget.update(gadget_params)
       redirect_to @gadget, notice: 'Equipamento foi atualizado com sucesso.'

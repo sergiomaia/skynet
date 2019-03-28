@@ -9,60 +9,13 @@
 
   <table class="table table-skynet">
     <tbody>
-      <tr>
-        <td>Nome</td>
-        <td><%= best_in_place @customer, :name, :as => :input, activator: '#name_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'name_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>E-mail</td>
-        <td><%= best_in_place @customer, :email, :as => :input, activator: '#email_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'email_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>CPF</td>
-        <td><%= best_in_place @customer, :cpf, :as => :input, activator: '#cpf_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'cpf_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>Data de nasc.</td>
-        <td><%= best_in_place @customer, :birthdate, :as => :input, activator: '#birthdate_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'birthdate_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>Telefone</td>
-        <td><%= best_in_place @customer, :phone, :as => :input, activator: '#phone_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'phone_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>Celular</td>
-        <td><%= best_in_place @customer, :cellphone, :as => :input, activator: '#cellphone_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'cellphone_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
+      <%= render 'best_in_place_field', field_title: 'Nome', record: @customer, field_name: 'name' %>
+      <%= render 'best_in_place_field', field_title: 'E-mail', record: @customer, field_name: 'email' %>
+      <%= render 'best_in_place_field', field_title: 'CPF', record: @customer, field_name: 'cpf' %>
+      <%= render 'best_in_place_field', field_title: 'Endereço', record: @customer, field_name: 'address' %>
+      <%= render 'best_in_place_field', field_title: 'Data de nasc.', record: @customer, field_name: 'birthdate' %>
+      <%= render 'best_in_place_field', field_title: 'Telefone', record: @customer, field_name: 'phone' %>
+      <%= render 'best_in_place_field', field_title: 'Celular', record: @customer, field_name: 'cellphone' %>
       <tr>
         <td>Criação</td>
         <td><%= @customer.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
@@ -88,7 +41,11 @@
           <tr>
             <td><%= link_to gadget.card, gadget %></td>
             <td><% gadget.nds %></td>
-            <td><%= 'Ação' %></td>
+            <td>
+              <%= link_to gadget_dealloc_path(gadget), class: 'action-icon', data: { confirm: 'Tem certeza?' } do %>
+                <%=  fa_icon 'close', data: { toggle: 'tooltip' }, title: 'Desassociar' %> Desassociar
+              <% end %>
+            </td>
           </tr>
         <% end %>
       <% else %>
@@ -116,11 +73,12 @@
   </div>
 </div>
 <%# FIXME should user current_user.gadgets %>
-<%= render 'gadgets/set_modal', gadgets: Gadget.all.inactive, customer: @customer, gadget_allocation: @gadget_allocation %>
+<%= render 'gadgets/set_modal', gadgets: Gadget.all, gadget_allocation: @gadget_allocation %>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    /* Activating Best In Place */
-    jQuery(".best_in_place").best_in_place();
-  });
-</script>
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      jQuery(".best_in_place").best_in_place();
+    });
+  </script>
+<% end %>

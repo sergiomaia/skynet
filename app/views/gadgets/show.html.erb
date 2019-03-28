@@ -5,35 +5,13 @@
     </h2>
   </div>
 
+  <%= render 'notice' %>
+
   <table class="table table-skynet">
     <tbody>
-      <tr>
-        <td>Card</td>
-        <td><%= best_in_place @gadget, :card, :as => :input, activator: '#card_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'card_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>NDS</td>
-        <td><%= best_in_place @gadget, :nds, :as => :input, activator: '#nds_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'nds_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>Modelo</td>
-        <td><%= best_in_place @gadget, :model, :as => :input, activator: '#model_activator' %></td>
-        <td>
-          <%= link_to "#", id: 'model_activator', class: 'action-icon' do %>
-            <%=  fa_icon 'pencil' %> Editar
-          <% end %>
-        </td>
-      </tr>
+      <%= render 'best_in_place_field', field_title: 'Card', record: @gadget, field_name: 'card' %>
+      <%= render 'best_in_place_field', field_title: 'NDS', record: @gadget, field_name: 'nds' %>
+      <%= render 'best_in_place_field', field_title: 'Modelo', record: @gadget, field_name: 'model' %>
       <tr>
         <td>Estado</td>
         <td><%= best_in_place @gadget, :status, :as => :select, collection: Gadget.statuses, activator: '#status_activator' %></td>
@@ -77,9 +55,11 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    /* Activating Best In Place */
-    jQuery(".best_in_place").best_in_place();
-  });
-</script>
+
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      jQuery(".best_in_place").best_in_place();
+    });
+  </script>
+<% end %>

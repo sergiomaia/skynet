@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :gadgets
+  resources :gadgets do
+    get :dealloc
+  end
   resources :gadget_allocations
 
   resources :customers do

@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
     @customers = current_user.customers.all
     @customer = current_user.customers.new
     @customer.packages.build
+    @gadget_allocation = GadgetAllocation.new
   end
 
   def show
@@ -59,8 +60,10 @@ class CustomersController < ApplicationController
     :phone,
     :cellphone,
     { packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy) })
-    permited_params[:packages_attributes]["0"][:plan] = permited_params[:packages_attributes]["0"][:plan].to_i
-    permited_params[:packages_attributes]["0"][:status] = permited_params[:packages_attributes]["0"][:status].to_i
+    if permited_params[:packages_attributes]
+      permited_params[:packages_attributes]["0"][:plan] = permited_params[:packages_attributes]["0"][:plan].to_i
+      permited_params[:packages_attributes]["0"][:status] = permited_params[:packages_attributes]["0"][:status].to_i
+    end
     permited_params
   end
 end
