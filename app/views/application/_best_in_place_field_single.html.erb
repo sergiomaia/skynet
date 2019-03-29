@@ -1,0 +1,4 @@
+<%= best_in_place record, field_name, :as => :input, activator: "##{field_name}_activator", inner_class: type %>
+<%= link_to "#", id: "#{field_name}_activator", class: 'action-icon' do %>
+  <%=  fa_icon 'pencil' %>
+<% end %>
