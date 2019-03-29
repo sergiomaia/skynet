@@ -1,0 +1,66 @@
+<div class="container container-skynet">
+  <div class="container-title margin-bottom-50 clearfix">
+    <h2>
+      Minhas tarefas
+      <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-task-modal'>
+        <%=  fa_icon 'plus' %> Nova tarefa
+      </button>
+    </h2>
+  </div>
+
+  <%= render 'notice' %>
+
+  <table class="table table-skynet table-skynet-index table-striped table-hover header-fixed margin-none">
+    <thead>
+      <tr>
+        <th>Tarefa</th>
+        <th>Estado</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <% if task.completed %>
+          <tr class="table-secondary">
+            <td class="striker"><%= task.description %></td>
+            <td>
+              <button type="button" name="button" class="btn btn-230 btn-warning">
+                <%= fa_icon 'check-square' %> Tarefa completa
+              </button>
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-230 btn-primary">
+                <%= fa_icon 'pencil' %> Editar
+              </button>
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-230 btn-danger">
+                <%= fa_icon 'trash-o' %> Deletar
+              </button>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td><%= task.description %></td>
+            <td>
+              <button type="button" name="button" class="btn btn-230 btn-success">
+                <%= fa_icon 'square' %> Marcar como completa
+              </button>
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-230 btn-primary">
+                <%= fa_icon 'pencil' %> Editar
+              </button>
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-230 btn-danger">
+                <%= fa_icon 'trash-o' %> Deletar
+              </button>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
