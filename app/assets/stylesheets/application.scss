@@ -107,3 +107,8 @@ table.table-skynet tr:hover td a.action-icon .fa { color: #5e98ee; }
 table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #5e98ee; }
 
 .form-horizontal { div.checkbox.inline { .control-label { text-align: left; } } }
+
+/* tasks list */
+.striker {
+  text-decoration: line-through;
+}
