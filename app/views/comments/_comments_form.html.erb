@@ -1,4 +1,4 @@
-<%= simple_form_for([@customer, @customer.comments.build]) do |f| %>
+<%= simple_form_for comment do |f| %>
   <%= f.input :body, as: :trix_editor %>
-  <%= f.button :submit, 'Enviar comentário', class: 'btn btn-success'%>
+  <%= f.button :submit, 'Salvar comentário', class: 'btn btn-success margin-top-20'%>
 <% end %>
