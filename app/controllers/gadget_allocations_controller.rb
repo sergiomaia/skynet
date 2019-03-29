@@ -12,8 +12,9 @@ class GadgetAllocationsController < ApplicationController
   end
 
   def gadget_allocation_params
-    permited_params = params.require(:gadget_allocation).permit(
-    :customer_id,
-    :gadget_id)
+    params.require(:gadget_allocation).permit(
+      :customer_id,
+      :gadget_id
+    )
   end
 end
