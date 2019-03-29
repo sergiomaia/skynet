@@ -13,21 +13,21 @@
   <table class="table table-skynet table-skynet-index table-striped table-hover header-fixed margin-none">
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Telefone</th>
-        <th>Celular</th>
-        <th>Ações</th>
+        <th class="w-30">Nome</th>
+        <th class="w-25">Email</th>
+        <th class="w-15">Telefone</th>
+        <th class="w-15">Celular</th>
+        <th class="w-15">Ações</th>
       </tr>
     </thead>
     <tbody id="accordion">
       <% @customers.each_with_index do |customer, index| %>
         <tr id="headingOne">
-          <td>
+          <td class="ellipsis">
             <!-- What is this? ND56 -->
             <%= link_to customer.name, customer %> <% if customer.gadgets.any? %> <%= link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %> <% end %>
           </td>
-          <td><%= customer.email %></td>
+          <td class="ellipsis"><%= customer.email %></td>
           <td><%= customer.phone %></td>
           <td><%= customer.cellphone %></td>
           <td>
@@ -46,11 +46,14 @@
           <tr class="collapse"></tr>
           <tr id="<%= "collapse#{index}" %>" class="collapse" aria-labelledby="<%= "heading#{index}" %>" data-parent="#accordion">
             <td>Equipamentos</td>
-            <td colspan="4">
+            <td>
               <% customer.gadgets.each do |gadget| %>
                 <%= link_to gadget.card, gadget %><br>
               <% end %>
             </td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         <% end %>
         <% customer.packages.each do |package| %>
@@ -60,9 +63,11 @@
             <td>
               R$ <%= package.value %>
             </td>
-            <td colspan="3">
+            <td>
               <%= package.status %>
             </td>
+            <td></td>
+            <td></td>
           </tr>
         <% end %>
       <% end %>
