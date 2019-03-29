@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :packages
+  resources :comments
   resources :gadgets do
     get :dealloc
   end
