@@ -30,10 +30,14 @@ class GadgetsController < ApplicationController
   end
 
   def update
-    if @gadget.update(gadget_params)
-      redirect_to @gadget, notice: 'Equipamento foi atualizado com sucesso.'
-    else
-      redirect_back(fallback_location: root_path, notice: @gadget.errors.full_messages.join(', '))
+    respond_to do |format|
+      if @gadget.update(gadget_params)
+        format.html { redirect_to @gadget, notice: 'Equipamento foi atualizado com sucesso.' }
+        format.json { respond_with_bip(@gadget) }
+      else
+        format.html { redirect_back(fallback_location: root_path, notice: @gadget.errors.full_messages.join(', ')) }
+        format.json { respond_with_bip(@gadget) }
+      end
     end
   end
 

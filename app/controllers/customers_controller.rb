@@ -10,6 +10,7 @@ class CustomersController < ApplicationController
 
   def show
     @gadget_allocation = GadgetAllocation.new(customer_id: @customer.id)
+    @comment = @customer.comment || @customer.comment.build
   end
 
   def new
@@ -27,15 +28,19 @@ class CustomersController < ApplicationController
     if @customer.save
       redirect_to @customer, notice: 'Cliente cadastrado com sucesso.'
     else
-      render :new
+      redirect_back(fallback_location: root_path, notice: @customer.errors.full_messages.join(', '))
     end
   end
 
   def update
-    if @customer.update(customer_params)
-      redirect_to @customer, notice: 'Os dados cliente foi editado com sucesso.'
-    else
-      render :edit
+    respond_to do |format|
+      if @customer.update(customer_params)
+        format.html { redirect_to @customer, notice: 'Os dados cliente foi editado com sucesso.' }
+        format.json { respond_with_bip(@customer) }
+      else
+        format.html { redirect_back(fallback_location: root_path, notice: @customer.errors.full_messages.join(', ')) }
+        format.json { respond_with_bip(@customer) }
+      end
     end
   end
 
@@ -61,6 +66,7 @@ class CustomersController < ApplicationController
     :cellphone,
     { packages_attributes: Package.attribute_names.map(&:to_sym).push(:_destroy) })
     if permited_params[:packages_attributes]
+      permited_params[:packages_attributes]["0"][:value] = permited_params[:packages_attributes]["0"][:value].gsub(/[^\d.]/, '').to_f
       permited_params[:packages_attributes]["0"][:plan] = permited_params[:packages_attributes]["0"][:plan].to_i
       permited_params[:packages_attributes]["0"][:status] = permited_params[:packages_attributes]["0"][:status].to_i
     end
