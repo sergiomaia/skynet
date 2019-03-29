@@ -17,7 +17,7 @@
 
     <%= f.simple_fields_for :packages do |p| %>
       <%= p.input :plan, collection: Package.plans, prompt: 'Selecione o plano' %>
-      <%= p.input :value %>
+      <%= p.input :value, as: :string, input_html: { class: 'money' } %>
       <%= p.input :expires_at, as: :string, input_html: { class: 'date' } %>
       <%= p.input :status, collection: Package.statuses, prompt: 'Selecione o estado' %>
     <% end %>
