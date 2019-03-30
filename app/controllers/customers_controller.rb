@@ -10,7 +10,6 @@ class CustomersController < ApplicationController
 
   def show
     @gadget_allocation = GadgetAllocation.new(customer_id: @customer.id)
-    @comment = @customer.comment || @customer.comment.build
   end
 
   def new
@@ -35,7 +34,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Os dados cliente foi editado com sucesso.' }
+        format.html { redirect_to @customer, notice: 'Os dados cliente foi alterado com sucesso.' }
         format.json { respond_with_bip(@customer) }
       else
         format.html { redirect_back(fallback_location: root_path, notice: @customer.errors.full_messages.join(', ')) }
@@ -46,7 +45,7 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    redirect_to customers_url, notice: 'O cliente foi deletado.'
+    redirect_to customers_url, notice: 'O cliente foi removido.'
   end
 
   private
