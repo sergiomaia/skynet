@@ -23,7 +23,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: 'A tarefa foi editada com sucesso.'
+      redirect_to tasks_path, notice: 'A tarefa foi alterada com sucesso.'
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: 'A tarefa foi apagada com sucesso.'
+    redirect_to tasks_url, notice: 'A tarefa foi removida com sucesso.'
   end
 
   private
@@ -40,6 +40,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:description, :completed, :user_id)
+    params.require(:task).permit(:description, :completed, :user_id, :status)
   end
 end
