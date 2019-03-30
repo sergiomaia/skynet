@@ -1,12 +1,12 @@
-<%= simple_form_for(task) do |f| %>
+<%= simple_form_for(Task.new) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-group">
     <%= f.input :description %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions form-group">
+    <%= f.button :submit, 'Criar', class: 'btn-success' %>
   </div>
 <% end %>
