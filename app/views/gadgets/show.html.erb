@@ -9,9 +9,9 @@
 
   <table class="table table-skynet">
     <tbody>
-      <%= render 'best_in_place_field', field_title: 'Card', record: @gadget, field_name: 'card', type: '' %>
-      <%= render 'best_in_place_field', field_title: 'NDS', record: @gadget, field_name: 'nds', type: '' %>
-      <%= render 'best_in_place_field', field_title: 'Modelo', record: @gadget, field_name: 'model', type: '' %>
+      <%= render 'best_in_place_field', field_title: 'Card', record: @gadget, field_name: 'card', type: '', value: '' %>
+      <%= render 'best_in_place_field', field_title: 'NDS', record: @gadget, field_name: 'nds', type: '', value: '' %>
+      <%= render 'best_in_place_field', field_title: 'Modelo', record: @gadget, field_name: 'model', type: '', value: '' %>
       <tr>
         <td>Estado</td>
         <td><%= best_in_place @gadget, :status, :as => :select, collection: Gadget.statuses.keys.map { |w| [w, w.humanize] }, activator: '#status_activator' %></td>

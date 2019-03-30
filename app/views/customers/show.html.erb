@@ -18,13 +18,13 @@
       <%= render 'notice' %>
       <table class="table table-skynet table-skynet-show">
         <tbody>
-          <%= render 'best_in_place_field', field_title: 'Nome', record: @customer, field_name: 'name', type: '' %>
-          <%= render 'best_in_place_field', field_title: 'E-mail', record: @customer, field_name: 'email', type: '' %>
-          <%= render 'best_in_place_field', field_title: 'CPF', record: @customer, field_name: 'cpf', type: 'cpf_document' %>
-          <%= render 'best_in_place_field', field_title: 'Endereço', record: @customer, field_name: 'address', type: '' %>
-          <%= render 'best_in_place_field', field_title: 'Data de nasc.', record: @customer, field_name: 'birthdate', type: 'date' %>
-          <%= render 'best_in_place_field', field_title: 'Telefone', record: @customer, field_name: 'phone', type: 'phone' %>
-          <%= render 'best_in_place_field', field_title: 'Celular', record: @customer, field_name: 'cellphone', type: 'phone' %>
+          <%= render 'best_in_place_field', field_title: 'Nome', record: @customer, field_name: 'name', type: '', value: '' %>
+          <%= render 'best_in_place_field', field_title: 'E-mail', record: @customer, field_name: 'email', type: '', value: '' %>
+          <%= render 'best_in_place_field', field_title: 'CPF', record: @customer, field_name: 'cpf', type: 'cpf_document', value: '' %>
+          <%= render 'best_in_place_field', field_title: 'Endereço', record: @customer, field_name: 'address', type: '', value: '' %>
+          <%= render 'best_in_place_field', field_title: 'Data de nasc.', record: @customer, field_name: 'birthdate', type: 'date', value: @customer.birthdate&.strftime('%d/%m/%Y') %>
+          <%= render 'best_in_place_field', field_title: 'Telefone', record: @customer, field_name: 'phone', type: 'phone', value: '' %>
+          <%= render 'best_in_place_field', field_title: 'Celular', record: @customer, field_name: 'cellphone', type: 'phone', value: '' %>
           <tr>
             <td>Criação</td>
             <td><%= @customer.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
