@@ -21,7 +21,7 @@ class PackagesController < ApplicationController
 
   def package_params
     permited_params = params.require(:package).permit(:plan, :value, :status, :expires_at)
-    permited_params[:value] = permited_params[:value].gsub(/[^\d.]/, '').to_f
+    permited_params[:value] = permited_params[:value].gsub(/[^\d.]/, '').to_f if permited_params[:value]
     permited_params
   end
 end
