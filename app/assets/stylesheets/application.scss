@@ -61,9 +61,14 @@ a, a:hover, a:focus { text-decoration: none; outline: none;}
   color: #3c4f57;
 }
 
-.header-fixed    { overflow-y: auto; height: 100px; }
+.header-fixed    { overflow-y: auto; height: 50px; }
 .header-fixed th { position: sticky; top: 0; }
-.table-skynet th, .table-skynet td { padding-left: 20px; }
+.table-skynet { table-layout: fixed; }
+.table-skynet th, .table-skynet td { padding-left: 20px; word-wrap: break-word; }
+.table-skynet tr.border-none td { border: 0; }
+.nav-single-show {
+  margin: -46px -46px 30px -46px;
+}
 
 .container-title {
   margin: -46px -46px 45px -46px;
