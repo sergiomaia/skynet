@@ -5,105 +5,146 @@
     </h2>
   </div>
 
-  <%= render 'notice' %>
-
-  <table class="table table-skynet table-skynet-show">
-    <tbody>
-      <%= render 'best_in_place_field', field_title: 'Nome', record: @customer, field_name: 'name', type: '' %>
-      <%= render 'best_in_place_field', field_title: 'E-mail', record: @customer, field_name: 'email', type: '' %>
-      <%= render 'best_in_place_field', field_title: 'CPF', record: @customer, field_name: 'cpf', type: 'cpf_document' %>
-      <%= render 'best_in_place_field', field_title: 'Endereço', record: @customer, field_name: 'address', type: '' %>
-      <%= render 'best_in_place_field', field_title: 'Data de nasc.', record: @customer, field_name: 'birthdate', type: 'date' %>
-      <%= render 'best_in_place_field', field_title: 'Telefone', record: @customer, field_name: 'phone', type: 'phone' %>
-      <%= render 'best_in_place_field', field_title: 'Celular', record: @customer, field_name: 'cellphone', type: 'phone' %>
-      <tr>
-        <td>Criação</td>
-        <td><%= @customer.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Últ. Modificação</td>
-        <td><%= @customer.updated_at.strftime('%d/%m/%Y às %H:%m') %></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <%= render 'comments/comments_form', customer: @customer, comment: @comment %>
-
-  <table class="table table-skynet margin-top-30">
-    <thead>
-      <tr>
-        <th class="w-70"><strong>Equipamentos</strong></th>
-        <th class="w-30"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @customer.gadgets.any? %>
-        <% @customer.gadgets.each do |gadget| %>
+  <nav class="nav-single-show">
+  	<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+  		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Geral</a>
+  		<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Equipamentos</a>
+  		<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Planos</a>
+  		<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Comentários</a>
+  	</div>
+  </nav>
+	<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <%= render 'notice' %>
+      <table class="table table-skynet table-skynet-show">
+        <tbody>
+          <%= render 'best_in_place_field', field_title: 'Nome', record: @customer, field_name: 'name', type: '' %>
+          <%= render 'best_in_place_field', field_title: 'E-mail', record: @customer, field_name: 'email', type: '' %>
+          <%= render 'best_in_place_field', field_title: 'CPF', record: @customer, field_name: 'cpf', type: 'cpf_document' %>
+          <%= render 'best_in_place_field', field_title: 'Endereço', record: @customer, field_name: 'address', type: '' %>
+          <%= render 'best_in_place_field', field_title: 'Data de nasc.', record: @customer, field_name: 'birthdate', type: 'date' %>
+          <%= render 'best_in_place_field', field_title: 'Telefone', record: @customer, field_name: 'phone', type: 'phone' %>
+          <%= render 'best_in_place_field', field_title: 'Celular', record: @customer, field_name: 'cellphone', type: 'phone' %>
           <tr>
-            <td><%= link_to gadget.card, gadget %></td>
-            <td>
-              <%= link_to gadget_dealloc_path(gadget), class: 'action-icon', data: { confirm: 'Tem certeza?' } do %>
-                <%=  fa_icon 'close', data: { toggle: 'tooltip' }, title: 'Desassociar' %> Desassociar
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      <% else %>
-      <tr>
-        <td colspan="3">Não há equipamentos alocados à este cliente</td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <table class="table table-skynet margin-top-30">
-    <thead>
-      <tr>
-        <th colspan="5"><strong>Planos associados</strong></th>
-      </tr>
-      <tr>
-        <td class="w-20"></td>
-        <td class="w-20">Plano</td>
-        <td class="w-20">Estado</td>
-        <td class="w-20">Valor</td>
-        <td class="w-20">Data venc.</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @customer.packages.any? %>
-        <% @customer.packages.each do |package| %>
-          <tr>
+            <td>Criação</td>
+            <td><%= @customer.created_at.strftime('%d/%m/%Y às %H:%m') %></td>
             <td></td>
-            <td>
-              <%= best_in_place package, :plan, :as => :select, collection: Package.plans, activator: '#plan_activator' %>
-              <%= link_to "#", id: 'plan_activator', class: 'action-icon' do %>
-                <%=  fa_icon 'pencil' %>
-              <% end %>
-            </td>
-            <td>
-              <%= best_in_place package, :status, :as => :select, collection: Package.statuses, activator: '#status_activator' %>
-              <%= link_to "#", id: 'status_activator', class: 'action-icon' do %>
-                <%=  fa_icon 'pencil' %>
-              <% end %>
-            </td>
-            <td>
-              R$ <%= render 'best_in_place_field_single', field_title: 'Valor', record: package, field_name: 'value', type: 'money' %>
-            </td>
-            <td>
-              <%= render 'best_in_place_field_single', field_title: 'Data venc.', record: package, field_name: 'expires_at', type: 'date' %>
-            </td>
           </tr>
+          <tr>
+            <td>Últ. Modificação</td>
+            <td><%= @customer.updated_at.strftime('%d/%m/%Y às %H:%m') %></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+		</div>
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+      <table class="table table-skynet">
+        <thead>
+          <tr>
+            <td class="w-35">Card</td>
+            <td class="w-35">Estado</td>
+            <td class="w-30">Ações</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @customer.gadgets.any? %>
+            <% @customer.gadgets.each do |gadget| %>
+              <tr>
+                <td><%= link_to gadget.card, gadget %></td>
+                <td><%= gadget.status.humanize %></td>
+                <td>
+                  <%= link_to gadget_dealloc_path(gadget), class: 'action-icon', data: { confirm: 'Tem certeza?' } do %>
+                    <%=  fa_icon 'close', data: { toggle: 'tooltip' }, title: 'Desassociar' %> Desassociar
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+          <tr>
+            <td colspan="3">Não há equipamentos alocados à este cliente</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+		</div>
+		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+      <table class="table table-skynet">
+        <thead>
+          <tr>
+            <td class="w-25">Plano</td>
+            <td class="w-25">Estado</td>
+            <td class="w-25">Valor</td>
+            <td class="w-25">Data venc.</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @customer.packages.any? %>
+            <% @customer.packages.each do |package| %>
+              <tr>
+                <td>
+                  <%= best_in_place package, :plan, :as => :select, collection: Package.plans.keys.map { |w| [w, w.humanize] }, activator: '#plan_activator' %>
+                  <%= link_to "#", id: 'plan_activator', class: 'action-icon' do %>
+                    <%=  fa_icon 'pencil' %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= best_in_place package, :status, :as => :select, collection: Package.statuses.keys.map { |w| [w, w.humanize] }, activator: '#status_activator' %>
+                  <%= link_to "#", id: 'status_activator', class: 'action-icon' do %>
+                    <%=  fa_icon 'pencil' %>
+                  <% end %>
+                </td>
+                <td>
+                  R$ <%= render 'best_in_place_field_single', field_title: 'Valor', record: package, field_name: 'value', type: 'money', value: package.value*10 %>
+                </td>
+                <td>
+                  <%= render 'best_in_place_field_single', field_title: 'Data de vencimento', record: package, field_name: 'expires_at', type: 'date', value: package.expires_at&.strftime('%d/%m/%Y') %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+          <tr>
+            <td colspan="3">Não há equipamentos alocados à este cliente</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+		</div>
+		<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+      <div class="margin-bottom-30">
+        <%= render 'comments/comments_form', customer: @customer %>
+      </div>
+      <% if @customer.comments.any? %>
+        <% @customer.reload.comments.each_with_index do |comment, index| %>
+          <div class="card margin-bottom-30">
+            <h5 class="card-header">
+              <%= "Comentário #{index}" %>
+
+              <%= link_to comment_path(comment), class: 'action-icon float-right', data: { confirm: 'Tem certeza?' }, method: :delete do %>
+                <%=  fa_icon 'close', data: { toggle: 'tooltip' }, title: 'Remover' %>
+              <% end %>
+            </h5>
+            <div class="card-body">
+              <%= sanitize(comment.body) %>
+              <br>
+              <em><%= "Feito às #{comment.created_at.strftime('%d/%m/%Y às %H:%m')}" %></em>
+            </div>
+          </div>
         <% end %>
       <% else %>
-      <tr>
-        <td colspan="3">Não há equipamentos alocados à este cliente</td>
-      </tr>
+        <div class="card">
+          <h5 class="card-header">Featured</h5>
+          <div class="card-body">
+            Não há comentários.
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-
+		</div>
+	</div>
   <div class="row margin-top-20 text-center">
     <div class="col-sm-4 margin-bottom-xs-10">
       <%= link_to customers_path, class: 'btn btn-small text-dark' do %>
