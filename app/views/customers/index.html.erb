@@ -25,7 +25,7 @@
         <tr id="headingOne">
           <td class="ellipsis">
             <!-- What is this? ND56 -->
-            <%= link_to customer.name, customer %> <% if customer.gadgets.any? %> <%= link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %> <% end %>
+            <%= link_to customer.name, customer %>  <%= link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %>
           </td>
           <td class="ellipsis"><%= customer.email %></td>
           <td><%= customer.phone %></td>
@@ -38,38 +38,30 @@
               <%=  fa_icon 'wrench', data: { toggle: 'tooltip' }, title: 'Associar equip.' %>
             <% end %>
             <%= link_to customer, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
-              <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Deletar' %>
+              <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Remover' %>
             <% end %>
           </td>
         </tr>
-        <% if customer.gadgets.any? %>
-          <tr class="collapse"></tr>
-          <tr id="<%= "collapse#{index}" %>" class="collapse" aria-labelledby="<%= "heading#{index}" %>" data-parent="#accordion">
-            <td>Equipamentos</td>
+        <%# customer.packages.each do |package| %>
+          <!-- <tr class="collapse">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr> -->
+          <!-- <tr id="<%# "collapse#{index}" %>" class="collapse border-none" aria-labelledby="<%# "heading#{index}" %>" data-parent="#accordion">
+            <td>Plano <%# package.plan %></td>
             <td>
-              <% customer.gadgets.each do |gadget| %>
-                <%= link_to gadget.card, gadget %><br>
-              <% end %>
+              R$ <%# package.value %>
+            </td>
+            <td>
+              <%# package.status %>
             </td>
             <td></td>
             <td></td>
-            <td></td>
-          </tr>
-        <% end %>
-        <% customer.packages.each do |package| %>
-          <tr class="collapse"></tr>
-          <tr id="<%= "collapse#{index}" %>" class="collapse" aria-labelledby="<%= "heading#{index}" %>" data-parent="#accordion">
-            <td>Plano <%= package.plan %></td>
-            <td>
-              R$ <%= package.value %>
-            </td>
-            <td>
-              <%= package.status %>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        <% end %>
+          </tr> -->
+        <%# end %>
       <% end %>
     </tbody>
   </table>
