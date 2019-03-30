@@ -10,7 +10,7 @@ class GadgetAllocation
 
   def register
     if valid?
-      Gadget.find(gadget_id).update(customer_id: customer_id, status: :active)
+      Gadget.find(gadget_id).update(customer_id: customer_id, status: :ativo)
     end
   end
 end
