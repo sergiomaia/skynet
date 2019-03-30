@@ -2,11 +2,8 @@ class Task < ApplicationRecord
   belongs_to :user
   validates :description, presence: true
 
-  def completed?
-    self.completed = false
-  end
-
-  def incompleted?
-    self.incompleted = true
-  end
+  enum status: {
+    aberta: 0,
+    completa: 1
+  }
 end

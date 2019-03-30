@@ -10,59 +10,68 @@
 
   <%= render 'notice' %>
 
-  <table class="table table-skynet table-skynet-index table-striped table-hover header-fixed margin-none">
+  <table class="table table-skynet table-skynet-index table-hover header-fixed margin-none">
     <thead>
       <tr>
-        <th>Tarefa</th>
-        <th>Estado</th>
-        <th>Editar</th>
-        <th>Deletar</th>
+        <th class="w-70">Tarefa</th>
+        <th class="w-15">Estado</th>
+        <th class="w-15">Ações</th>
       </tr>
     </thead>
     <tbody>
-      <% @tasks.each do |task| %>
-        <% if task.completed %>
-          <tr class="table-secondary">
-            <td class="striker"><%= task.description %></td>
-            <td>
-              <button type="button" name="button" class="btn btn-230 btn-warning">
-                <%= fa_icon 'check-square' %> Tarefa completa
-              </button>
-            </td>
-            <td>
-              <button type="button" name="button" class="btn btn-230 btn-primary">
-                <%= fa_icon 'pencil' %> Editar
-              </button>
-            </td>
-            <td>
-              <button type="button" name="button" class="btn btn-230 btn-danger">
-                <%= fa_icon 'trash-o' %> Deletar
-              </button>
-            </td>
-          </tr>
-        <% else %>
-          <tr>
-            <td><%= task.description %></td>
-            <td>
-              <button type="button" name="button" class="btn btn-230 btn-success">
-                <%= fa_icon 'square' %> Marcar como completa
-              </button>
-            </td>
-            <td>
-              <button type="button" name="button" class="btn btn-230 btn-primary">
-                <%= fa_icon 'pencil' %> Editar
-              </button>
-            </td>
-            <td>
-              <button type="button" name="button" class="btn btn-230 btn-danger">
-                <%= fa_icon 'trash-o' %> Deletar
-              </button>
-            </td>
-          </tr>
-        <% end %>
+      <% @tasks.aberta.each_with_index do |task, index| %>
+        <tr>
+          <td>
+            <%= best_in_place task, :description, :as => :textarea, activator: "#description_activator_aberta_#{index}" %>
+            <%= link_to "#", id: "description_activator_aberta_#{index}", class: 'action-icon' do %>
+              <%=  fa_icon 'pencil' %>
+            <% end %>
+          </td>
+          <td>
+            <%= best_in_place task, :status, :as => :select, collection: Task.statuses.keys.map { |w| [w, w.humanize] }, activator: "#status_activator_aberta_#{index}" %>
+            <%= link_to "#", id: "status_activator_aberta_#{index}", class: 'action-icon' do %>
+              <%=  fa_icon 'pencil' %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to task, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
+              <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Remover' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+      <% @tasks.completa.each_with_index do |task, index| %>
+        <tr class="table-secondary">
+          <td class="striker">
+            <%= best_in_place task, :description, :as => :textarea, activator: "#description_activator_completa_#{index}" %>
+            <%= link_to "#", id: "description_activator_completa_#{index}", class: 'action-icon' do %>
+              <%=  fa_icon 'pencil' %>
+            <% end %>
+          </td>
+          <td>
+            <%= best_in_place task, :status, :as => :select, collection: Task.statuses.keys.map { |w| [w, w.humanize] }, activator: "#status_activator_completa_#{index}" %>
+            <%= link_to "#", id: "status_activator_completa_#{index}", class: 'action-icon' do %>
+              <%=  fa_icon 'pencil' %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to task, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
+              <%=  fa_icon 'trash-o', data: { toggle: 'tooltip' }, title: 'Remover' %>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
 <%= render 'tasks/new_modal' %>
+
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      jQuery(".best_in_place").best_in_place();
+    });
+  </script>
+<% end %>
