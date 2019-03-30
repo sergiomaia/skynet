@@ -4,7 +4,7 @@ class Package < ApplicationRecord
   enum plan: { top_full_hd: 0 }
 
   enum status: {
-    ativa: 0,
-    inativa: 1
+    ativo: 0,
+    inativo: 1
   }
 end
