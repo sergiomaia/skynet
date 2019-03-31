@@ -45,7 +45,9 @@ pt-BR:
         value: Valor
         expires_at: Data de venc.
         status: Estado
-        protocol: Protocolo
+      protocol:
+        number: Protocolo
+        call_time: Dia e horário da ligação
   date:
     abbr_day_names:
     - Dom
