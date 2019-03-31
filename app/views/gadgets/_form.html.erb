@@ -6,7 +6,7 @@
     <%= f.input :card, class: 'form-control' %>
     <%= f.input :nds %>
     <%= f.input :model %>
-    <%= f.input :status, collection: Gadget.statuses, prompt: 'Selecione o estado'; %>
+    <%= f.input :status, collection: Gadget.statuses, prompt: 'Selecione o estado', input_html: { class: 'custom-select' } %>
   </div>
 
   <div class="form-actions form-group">
