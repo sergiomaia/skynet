@@ -121,7 +121,7 @@
       <% if @customer.comments.any? %>
         <% @customer.reload.comments.each_with_index do |comment, index| %>
           <div class="card margin-bottom-30">
-            <h5 class="card-header">
+            <h5 class="card-header card-skynet">
               <%= "Comentário #{index}" %>
 
               <%= link_to comment_path(comment), class: 'action-icon float-right', data: { confirm: 'Tem certeza?' }, method: :delete do %>
