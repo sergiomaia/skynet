@@ -117,9 +117,9 @@
 		</div>
 		<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
       <div class="margin-bottom-30">
-        <%= render 'comments/comments_form', customer: @customer %>
+        <%= render 'comments/form', customer: @customer %>
       </div>
-      <% if @customer.comments.any? %>
+      <% if @customer.reload.comments.any? %>
         <% @customer.reload.comments.each_with_index do |comment, index| %>
           <div class="card margin-bottom-30">
             <h5 class="card-header card-skynet">
@@ -138,7 +138,7 @@
         <% end %>
       <% else %>
         <div class="card">
-          <h5 class="card-header">Featured</h5>
+          <h5 class="card-header card-skynet"></h5>
           <div class="card-body">
             Não há comentários.
           </div>
@@ -147,7 +147,9 @@
 		</div>
 		<div class="tab-pane fade" id="nav-protocol" role="tabpanel" aria-labelledby="nav-protocol-tab">
       <div class="margin-bottom-30">
-        <%= render 'protocols/protocols_form', customer: @customer %>
+        <button type="button" name="button" class="btn btn-230 btn-success" data-toggle='modal' data-target='#new-protocol-modal'>
+          <%=  fa_icon 'plus' %> Novo protocolo
+        </button>
       </div>
       <table class="table table-skynet">
         <thead>
@@ -157,8 +159,8 @@
           </tr>
         </thead>
         <tbody>
-          <% if @customer.protocols.any? %>
-            <% @customer.protocols.each do |gadget| %>
+          <% if @customer.reload.protocols.any? %>
+            <% @customer.reload.protocols.each do |gadget| %>
               <tr>
                 <td><%= gadget.number %></td>
                 <td><%= gadget.call_time %></td>
@@ -191,6 +193,7 @@
 </div>
 <%# FIXME should user current_user.gadgets %>
 <%= render 'gadgets/set_modal', gadgets: Gadget.all, gadget_allocation: @gadget_allocation %>
+<%= render 'protocols/new_modal', customer: @customer %>
 
 <%= content_for :javascripts do %>
   <script type="text/javascript">
