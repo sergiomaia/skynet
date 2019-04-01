@@ -7,14 +7,15 @@
 
   <nav class="nav-single-show">
   	<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-  		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Geral</a>
-  		<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Equipamentos</a>
-  		<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Planos</a>
-  		<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Comentários</a>
+  		<a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">Geral</a>
+  		<a class="nav-item nav-link" id="nav-gadget-tab" data-toggle="tab" href="#nav-gadget" role="tab" aria-controls="nav-gadget" aria-selected="false">Equipamentos</a>
+  		<a class="nav-item nav-link" id="nav-plan-tab" data-toggle="tab" href="#nav-plan" role="tab" aria-controls="nav-plan" aria-selected="false">Planos</a>
+  		<a class="nav-item nav-link" id="nav-comment-tab" data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-comment" aria-selected="false">Comentários</a>
+  		<a class="nav-item nav-link" id="nav-protocol-tab" data-toggle="tab" href="#nav-protocol" role="tab" aria-controls="nav-protocol" aria-selected="false">Protocolos</a>
   	</div>
   </nav>
 	<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+		<div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
       <%= render 'notice' %>
       <table class="table table-skynet table-skynet-show">
         <tbody>
@@ -38,7 +39,7 @@
         </tbody>
       </table>
 		</div>
-		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+		<div class="tab-pane fade" id="nav-gadget" role="tabpanel" aria-labelledby="nav-gadget-tab">
 
       <table class="table table-skynet">
         <thead>
@@ -63,14 +64,14 @@
             <% end %>
           <% else %>
           <tr>
-            <td colspan="3">Não há equipamentos alocados à este cliente</td>
+            <td colspan="3">Não há equipamentos associados à este cliente</td>
           </tr>
           <% end %>
         </tbody>
       </table>
 
 		</div>
-		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+		<div class="tab-pane fade" id="nav-plan" role="tabpanel" aria-labelledby="nav-plan-tab">
 
       <table class="table table-skynet">
         <thead>
@@ -107,21 +108,21 @@
             <% end %>
           <% else %>
           <tr>
-            <td colspan="3">Não há equipamentos alocados à este cliente</td>
+            <td colspan="3">Não há equipamentos associados à este cliente</td>
           </tr>
           <% end %>
         </tbody>
       </table>
 
 		</div>
-		<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+		<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
       <div class="margin-bottom-30">
-        <%= render 'comments/comments_form', customer: @customer %>
+        <%= render 'comments/form', customer: @customer %>
       </div>
-      <% if @customer.comments.any? %>
+      <% if @customer.reload.comments.any? %>
         <% @customer.reload.comments.each_with_index do |comment, index| %>
           <div class="card margin-bottom-30">
-            <h5 class="card-header">
+            <h5 class="card-header card-skynet">
               <%= "Comentário #{index}" %>
 
               <%= link_to comment_path(comment), class: 'action-icon float-right', data: { confirm: 'Tem certeza?' }, method: :delete do %>
@@ -137,12 +138,41 @@
         <% end %>
       <% else %>
         <div class="card">
-          <h5 class="card-header">Featured</h5>
+          <h5 class="card-header card-skynet"></h5>
           <div class="card-body">
             Não há comentários.
           </div>
         </div>
       <% end %>
+		</div>
+		<div class="tab-pane fade" id="nav-protocol" role="tabpanel" aria-labelledby="nav-protocol-tab">
+      <div class="margin-bottom-30">
+        <button type="button" name="button" class="btn btn-230 btn-success" data-toggle='modal' data-target='#new-protocol-modal'>
+          <%=  fa_icon 'plus' %> Novo protocolo
+        </button>
+      </div>
+      <table class="table table-skynet">
+        <thead>
+          <tr>
+            <td class="w-50">Protocolo</td>
+            <td class="w-50">Data de ligação</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @customer.reload.protocols.any? %>
+            <% @customer.reload.protocols.each do |gadget| %>
+              <tr>
+                <td><%= gadget.number %></td>
+                <td><%= gadget.call_time %></td>
+              </tr>
+            <% end %>
+          <% else %>
+          <tr>
+            <td colspan="3">Não há protocolos associados à este cliente</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 		</div>
 	</div>
   <div class="row margin-top-20 text-center">
@@ -163,6 +193,7 @@
 </div>
 <%# FIXME should user current_user.gadgets %>
 <%= render 'gadgets/set_modal', gadgets: Gadget.all, gadget_allocation: @gadget_allocation %>
+<%= render 'protocols/new_modal', customer: @customer %>
 
 <%= content_for :javascripts do %>
   <script type="text/javascript">

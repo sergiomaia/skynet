@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$( document ).on('turbolinks:load', function() {
   if (!!$('.table-skynet-index')) {
     $('.table-skynet-index').DataTable({
       "language": {
@@ -19,4 +19,4 @@ $(document).ready(function() {
       }
     });
   }
-});
+})
