@@ -64,11 +64,14 @@ ActiveRecord::Schema.define(version: 2019_03_28_235625) do
 
   create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.boolean "paid", default: false
+    t.float "paid_value"
     t.date "paid_at"
+    t.uuid "package_id"
     t.uuid "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_payments_on_customer_id"
+    t.index ["package_id"], name: "index_payments_on_package_id"
   end
 
   create_table "protocols", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
