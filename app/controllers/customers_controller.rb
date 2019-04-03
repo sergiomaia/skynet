@@ -23,8 +23,9 @@ class CustomersController < ApplicationController
 
   def create
     @customer = current_user.customers.build(customer_params)
-
+    package = @customer.packages.last
     if @customer.save
+      CreatePaymentService.create_payment(package)
       redirect_to @customer, notice: 'Cliente cadastrado com sucesso.'
     else
       redirect_back(fallback_location: root_path, notice: @customer.errors.full_messages.join(', '))
