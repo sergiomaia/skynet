@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :packages
   resources :comments
   resources :protocols
+  resources :payments
   resources :gadgets do
     get :dealloc
   end
