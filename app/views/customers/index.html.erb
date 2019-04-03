@@ -31,7 +31,7 @@
           <td><%= customer.cellphone %></td>
           <td>
             <% if customer.payments.last.expires_at.nil? %>
-              <%= link_to 'Pendente', class: 'badge badge-pill badge-default', data: { toggle: "modal", target: "#new-payment-modal" } do %>
+              <%= link_to 'Pendente', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
                 Pendente
               <% end %>
             <% elsif customer.payments.last.expires_at > Date.current %>
