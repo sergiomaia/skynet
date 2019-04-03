@@ -15,8 +15,8 @@
       <tr>
         <th class="w-30">Nome</th>
         <th class="w-25">Email</th>
-        <th class="w-15">Telefone</th>
         <th class="w-15">Celular</th>
+        <th class="w-15">Pagamento</th>
         <th class="w-15">Ações</th>
       </tr>
     </thead>
@@ -28,8 +28,26 @@
             <%= link_to customer.name, customer %>  <%# link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %>
           </td>
           <td class="ellipsis"><%= customer.email %></td>
-          <td><%= customer.phone %></td>
           <td><%= customer.cellphone %></td>
+          <td>
+            <% if customer.payments.last.expires_at.nil? %>
+              <%= link_to 'Pendente', class: 'badge badge-pill badge-default', data: { toggle: "modal", target: "#new-payment-modal" } do %>
+                Pendente
+              <% end %>
+            <% elsif customer.payments.last.expires_at > Date.current %>
+              <%= link_to 'Atrasado', class: 'badge badge-pill badge-danger', data: { toggle: "modal", target: "#new-payment-modal" } do %>
+                Atrasado
+              <% end %>
+            <% elsif customer.payments.last.expires_at == Date.current %>
+              <%= link_to 'Vence hoje', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
+                Vence hoje
+              <% end %>
+            <% else %>
+              <%= link_to 'Em dia', class: 'badge badge-pill badge-success', data: { toggle: "modal", target: "#new-payment-modal" } do %>
+                Em dia
+              <% end %>
+            <% end %>
+          </td>
           <td>
             <%= link_to customer, class: 'action-icon' do %>
               <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
@@ -68,5 +86,6 @@
 </div>
 
 <%= render 'customers/new_modal' %>
+<%= render 'payments/new_modal', customer: @customer %>
 <%# FIXME should user current_user.gadgets %>
 <%= render 'gadgets/set_modal', gadgets: Gadget.all, gadget_allocation: @gadget_allocation %>
