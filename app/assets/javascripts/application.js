@@ -13,6 +13,7 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap/rails/confirm
 //= require popper
 //= require best_in_place
 //= require bootstrap
