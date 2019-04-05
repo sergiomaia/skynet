@@ -2,19 +2,19 @@ class GadgetsController < ApplicationController
   before_action :set_gadget, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gadgets = Gadget.all
+    @gadgets = current_user.gadgets.all
   end
 
   def show;end
 
   def new
-    @gadget = Gadget.new
+    @gadget = current_user.gadgets.new
   end
 
   def edit;end
 
   def create
-    @gadget = Gadget.new(gadget_params)
+    @gadget = current_user.gadgets.build(gadget_params)
 
     if @gadget.save
       redirect_to @gadget, notice: 'Equipamento foi criado com sucesso.'
@@ -49,7 +49,7 @@ class GadgetsController < ApplicationController
   private
 
   def set_gadget
-    @gadget = Gadget.find(params[:id])
+    @gadget = current_user.gadgets.find(params[:id])
   end
 
   def gadget_params
