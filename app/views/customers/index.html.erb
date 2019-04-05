@@ -31,20 +31,20 @@
           <td><%= customer.cellphone %></td>
           <td>
             <% if customer.payments.last.paid == false %>
-              <%= link_to 'Pendente', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                Pendente
+              <%= link_to '#', class: "btn btn-warning btn-circle", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
+                <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Atualizar pagamento' %>
               <% end %>
             <% elsif customer.payments.last.expires_at > Date.current %>
-              <%= link_to 'Atrasado', class: 'badge badge-pill badge-danger', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                Atrasado
+              <%= link_to '#', class: "btn btn-warning btn-danger", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
+                <%=  fa_icon 'times', data: { toggle: 'tooltip' }, title: 'Atrasado' %>
               <% end %>
             <% elsif customer.payments.last.expires_at == Date.current %>
-              <%= link_to 'Vence hoje', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                Vence hoje
+              <%= link_to '#', class: "btn btn-warning btn-info", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
+                <%=  fa_icon 'check', data: { toggle: 'tooltip' }, title: 'Vence hoje' %>
               <% end %>
             <% else %>
-              <%= link_to 'Em dia', class: 'badge badge-pill badge-success', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                Em dia
+              <%= link_to '#', class: "btn btn-warning btn-success", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
+                <%=  fa_icon 'heart', data: { toggle: 'tooltip' }, title: 'Em dia' %>
               <% end %>
             <% end %>
           </td>
