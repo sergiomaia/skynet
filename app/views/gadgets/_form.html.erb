@@ -7,6 +7,7 @@
     <%= f.input :nds %>
     <%= f.input :model %>
     <%= f.input :status, collection: Gadget.statuses, prompt: 'Selecione o estado', input_html: { class: 'custom-select' } %>
+    <%= f.input :user_id, as: :hidden %>
   </div>
 
   <div class="form-actions form-group">
