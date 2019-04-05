@@ -121,3 +121,14 @@ table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #5e98
 .striker {
   text-decoration: line-through;
 }
+
+/* btn crcle on customers index */
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
