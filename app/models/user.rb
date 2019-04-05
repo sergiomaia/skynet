@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :packages, through: :customers
   has_many :gadgets, through: :customers
   has_many :tasks, dependent: :destroy
+  has_many :payments, dependent: :destroy
+  has_many :gadgets, dependent: :destroy
 end
