@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_235625) do
 
   create_table "gadgets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "customer_id"
+    t.uuid "user_id"
     t.string "card"
     t.string "nds"
     t.string "model"
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_235625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_gadgets_on_customer_id"
+    t.index ["user_id"], name: "index_gadgets_on_user_id"
   end
 
   create_table "packages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -63,14 +65,16 @@ ActiveRecord::Schema.define(version: 2019_03_28_235625) do
   end
 
   create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "status"
-    t.date "expires_at"
+    t.boolean "paid", default: false
     t.float "value"
     t.date "paid_at"
+    t.date "expires_at"
     t.uuid "package_id"
+    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["package_id"], name: "index_payments_on_package_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "protocols", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
