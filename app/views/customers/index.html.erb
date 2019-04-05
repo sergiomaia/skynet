@@ -30,7 +30,7 @@
           <td class="ellipsis"><%= customer.email %></td>
           <td><%= customer.cellphone %></td>
           <td>
-            <% if customer.payments.last.expires_at.nil? %>
+            <% if customer.payments.last.paid == false %>
               <%= link_to 'Pendente', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
                 Pendente
               <% end %>
