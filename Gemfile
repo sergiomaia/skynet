@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.0'
+ruby '2.7.0'
 
 gem 'rails', '5.2.2'
 gem 'pg', '1.0.0'
@@ -19,6 +19,8 @@ gem 'rails-i18n', '5.1.3'
 gem 'font-awesome-rails', '4.7.0.4'
 gem 'best_in_place', '3.1.1'
 gem 'trix-rails', require: 'trix'
+gem 'sidekiq', '5.2.5'
+gem 'twitter-bootstrap-rails-confirm', '2.0.1'
 
 group :development, :test do
   gem 'pry', '0.12.2'
