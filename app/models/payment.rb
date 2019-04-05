@@ -1,5 +1,6 @@
 class Payment < ApplicationRecord
   belongs_to :package
+  belongs_to :user
 
   enum status: {
     atrasado: 0,
