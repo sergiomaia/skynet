@@ -1,28 +1,35 @@
-# class PaymentsController < ApplicationController
-#   before_action :set_payment, only: [:create, :destroy]
+class PaymentsController < ApplicationController
+  before_action :set_payment, only: [:edit, :update, :destroy]
 
-#   def create
-#     @payment = Payment.new(payment_params.merge(user: current_user))
-#     if @payment.save
-#       redirect_back(fallback_location: root_path, notice: 'O Pagamento foi atualizado com sucesso.')
-#     else
-#       redirect_back(fallback_location: root_path, notice: @payment.errors.full_messages.join(', '))
-#     end
-#   end
+  def edit
+    @customer.payments.build
+  end
 
-#   def destroy
-#     @customer = @payment.customer
-#     @payment.destroy
-#     redirect_to @payment, notice: 'O comentário foi removido.'
-#   end
+  before_action :set_package, only: [:update]
 
-#   private
+  def update
+    respond_to do |format|
+      if @payment.update(payment_params)
+        format.html { redirect_back(fallback_location: root_path, notice: 'Pagamento foi atualizado com sucesso.') }
+      else
+        format.html { redirect_back(fallback_location: root_path, notice: @payment.errors.full_messages.join(', ')) }
+      end
+    end
+  end
 
-#   def set_payment
-#     @payment = current_user.payments.find(params[:id])
-#   end
+  def destroy
+    @customer = @payment.customer
+    @payment.destroy
+    redirect_to @customer, notice: 'O comentário foi removido.'
+  end
 
-#   def payments_params
-#     params.require(:payment).permit(:status, :expires_at_day, :value, :paid_at, :package_id)
-#   end
-# end
+  private
+
+  def set_payment
+    @payment = current_user.payment.last.find(params[:id])
+  end
+
+  def payments_params
+    params.require(:payment).permit(:paid, :expires_at_day, :value, :paid_at, :package_id, :user_id)
+  end
+end
