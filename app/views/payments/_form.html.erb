@@ -1,1 +1,16 @@
-<p> modal :) </p>
+<%= simple_form_for customer.payments.build do |f| %>
+	<%= f.error_notification %>
+	<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+	<div class="form-inputs form-group">
+	  <%= f.input :value, as: :string, input_html: { class: 'money' } %>
+    <%= f.input :paid_at, as: :string, input_html: { class: 'date' } %>
+    <%= f.input :expires_at, as: :string, input_html: { class: 'date' } %>
+	  <%= f.input :package_id, as: :hidden %>
+    <%= f.input :user_id, as: :hidden %>
+	</div>
+
+	<div class="form-actions form-group">
+		<%= f.button :submit, 'Atualizar', class: 'btn btn-success margin-top-20'%>
+	</div>
+<% end %>
