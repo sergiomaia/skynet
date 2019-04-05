@@ -1,5 +1,6 @@
 class Gadget < ApplicationRecord
   belongs_to :customer, optional: true
+  belongs_to :user
 
   validates :card, :nds, :status, presence: true
 
