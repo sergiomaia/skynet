@@ -53,6 +53,10 @@ pt-BR:
         password_confirmation: Digite a senha novamente
         email: Email
         remember_me: Lembre-se?
+      payment:
+        value: Valor pago
+        paid_at: Data de pgto.
+        expires_at: Data de venc.
   date:
     abbr_day_names:
     - Dom
