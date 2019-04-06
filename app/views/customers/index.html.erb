@@ -35,7 +35,7 @@
             <%= link_to customer, class: 'action-icon' do %>
               <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Editar' %>
             <% end %>
-            <%= link_to "#", class: 'action-icon', data: { toggle: "modal", target: "#set-gadget-modal" } do %>
+            <%= link_to "#", class: 'action-icon set-gadget-btn', data: { toggle: "modal", target: "#set-gadget-modal", cid: customer.id } do %>
               <%=  fa_icon 'wrench', data: { toggle: 'tooltip' }, title: 'Associar equip.' %>
             <% end %>
             <%= link_to customer, class: 'action-icon', data: { method: :delete, confirm: 'Tem certeza?' } do %>
@@ -52,3 +52,16 @@
 <%= render 'payments/new_modal', customer: @customer %>
 <%# FIXME should user current_user.gadgets %>
 <%= render 'gadgets/set_modal', gadgets: current_user.gadgets, gadget_allocation: @gadget_allocation %>
+
+
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ($('.set-gadget-btn')) {
+        $('.set-gadget-btn').on("click", function () {
+          $('#gadget_allocation_customer_id').val($(this).data('cid'))
+        });
+      }
+    });
+  </script>
+<% end %>
