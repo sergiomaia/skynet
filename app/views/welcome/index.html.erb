@@ -28,23 +28,7 @@
                 <%= customer.email %>
               </td>
               <td>
-                <% if customer.payments.last.expires_at.nil? %>
-                  <%= link_to 'Pendente', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Pendente
-                  <% end %>
-                <% elsif customer.payments.last.expires_at > Date.current %>
-                  <%= link_to 'Atrasado', class: 'badge badge-pill badge-danger', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Atrasado
-                  <% end %>
-                <% elsif customer.payments.last.expires_at == Date.current %>
-                  <%= link_to 'Vence hoje', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Vence hoje
-                  <% end %>
-                <% else %>
-                  <%= link_to 'Em dia', class: 'badge badge-pill badge-success', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Em dia
-                  <% end %>
-                <% end %>
+                <%= render 'payment_badge', payment: customer.payments.last %>
               </td>
             </tr>
           <% end %>
@@ -98,23 +82,7 @@
                 <%= customer.email %>
               </td>
               <td>
-                <% if customer.payments.last.expires_at.nil? %>
-                  <%= link_to 'Pendente', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Pendente
-                  <% end %>
-                <% elsif customer.payments.last.expires_at > Date.current %>
-                  <%= link_to 'Atrasado', class: 'badge badge-pill badge-danger', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Atrasado
-                  <% end %>
-                <% elsif customer.payments.last.expires_at == Date.current %>
-                  <%= link_to 'Vence hoje', class: 'badge badge-pill badge-warning', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Vence hoje
-                  <% end %>
-                <% else %>
-                  <%= link_to 'Em dia', class: 'badge badge-pill badge-success', data: { toggle: "modal", target: "#new-payment-modal" } do %>
-                    Em dia
-                  <% end %>
-                <% end %>
+                <%= render 'payment_badge', payment: customer.payments.last %>
               </td>
             </tr>
           <% end %>

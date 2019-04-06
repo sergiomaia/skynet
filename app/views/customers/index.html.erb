@@ -29,23 +29,7 @@
           <td class="ellipsis"><%= customer.email %></td>
           <td><%= customer.cellphone %></td>
           <td>
-            <% if customer.payments.last.paid == false %>
-              <%= link_to '#', class: "btn btn-warning btn-circle", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
-                <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Atualizar pagamento' %>
-              <% end %>
-            <% elsif customer.payments.last.expires_at > Date.current %>
-              <%= link_to '#', class: "btn btn-warning btn-danger", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
-                <%=  fa_icon 'times', data: { toggle: 'tooltip' }, title: 'Atrasado' %>
-              <% end %>
-            <% elsif customer.payments.last.expires_at == Date.current %>
-              <%= link_to '#', class: "btn btn-warning btn-info", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
-                <%=  fa_icon 'check', data: { toggle: 'tooltip' }, title: 'Vence hoje' %>
-              <% end %>
-            <% else %>
-              <%= link_to '#', class: "btn btn-warning btn-success", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
-                <%=  fa_icon 'heart', data: { toggle: 'tooltip' }, title: 'Em dia' %>
-              <% end %>
-            <% end %>
+            <%= render 'payment_badge', payment: customer.payments.last %>
           </td>
           <td>
             <%= link_to customer, class: 'action-icon' do %>
@@ -67,4 +51,4 @@
 <%= render 'customers/new_modal' %>
 <%= render 'payments/new_modal', customer: @customer %>
 <%# FIXME should user current_user.gadgets %>
-<%= render 'gadgets/set_modal', gadgets: current_user.all, gadget_allocation: @gadget_allocation %>
+<%= render 'gadgets/set_modal', gadgets: current_user.gadgets, gadget_allocation: @gadget_allocation %>
