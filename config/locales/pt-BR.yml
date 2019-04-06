@@ -48,6 +48,11 @@ pt-BR:
       protocol:
         number: Protocolo
         call_time: Dia e horário da ligação
+      user:
+        password: Digite a senha
+        password_confirmation: Digite a senha novamente
+        email: Email
+        remember_me: Lembre-se?
   date:
     abbr_day_names:
     - Dom
