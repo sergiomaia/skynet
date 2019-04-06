@@ -183,7 +183,7 @@
     </div>
     <div class="col-sm-4 margin-bottom-xs-10">
       <button type="button" name="button" class="btn btn-210 btn-success" data-toggle='modal' data-target='#set-gadget-modal'>
-        <%=  fa_icon 'plus' %> Alocar equipamento
+        <%=  fa_icon 'plus' %> Associar equipamento
       </button>
     </div>
     <div class="col-sm-4">
@@ -191,8 +191,8 @@
     </div>
   </div>
 </div>
-<%# FIXME should user current_user.gadgets %>
-<%= render 'gadgets/set_modal', gadgets: Gadget.all, gadget_allocation: @gadget_allocation %>
+
+<%= render 'gadgets/set_modal', gadgets: current_user.gadgets, gadget_allocation: @gadget_allocation %>
 <%= render 'protocols/new_modal', customer: @customer %>
 
 <%= content_for :javascripts do %>

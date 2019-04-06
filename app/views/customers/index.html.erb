@@ -24,8 +24,7 @@
       <% @customers.each_with_index do |customer, index| %>
         <tr id="headingOne">
           <td class="ellipsis">
-            <!-- What is this? ND56 -->
-            <%= link_to customer.name, customer %>  <%# link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %>
+            <%= link_to customer.name, customer %>
           </td>
           <td class="ellipsis"><%= customer.email %></td>
           <td><%= customer.cellphone %></td>
@@ -60,26 +59,6 @@
             <% end %>
           </td>
         </tr>
-        <%# customer.packages.each do |package| %>
-          <!-- <tr class="collapse">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr> -->
-          <!-- <tr id="<%# "collapse#{index}" %>" class="collapse border-none" aria-labelledby="<%# "heading#{index}" %>" data-parent="#accordion">
-            <td>Assinatura <%# package.plan %></td>
-            <td>
-              R$ <%# package.value %>
-            </td>
-            <td>
-              <%# package.status %>
-            </td>
-            <td></td>
-            <td></td>
-          </tr> -->
-        <%# end %>
       <% end %>
     </tbody>
   </table>
@@ -88,4 +67,4 @@
 <%= render 'customers/new_modal' %>
 <%= render 'payments/new_modal', customer: @customer %>
 <%# FIXME should user current_user.gadgets %>
-<%= render 'gadgets/set_modal', gadgets: Gadget.all, gadget_allocation: @gadget_allocation %>
+<%= render 'gadgets/set_modal', gadgets: current_user.all, gadget_allocation: @gadget_allocation %>

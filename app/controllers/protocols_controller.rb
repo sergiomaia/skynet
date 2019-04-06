@@ -23,6 +23,6 @@ class ProtocolsController < ApplicationController
   end
 
   def protocol_params
-    permited_params = params.require(:protocol).permit(:number, :customer_id)
+    permited_params = params.require(:protocol).permit(:number, :customer_id, :call_time)
   end
 end
