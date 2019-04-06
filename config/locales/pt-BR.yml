@@ -4,7 +4,7 @@ pt-BR:
       user: Usuário
       customer: Cliente
       gadget: Equipamento
-      package: Plano
+      package: Assinatura
       protocol: Protocolo
     attributes:
       gadget:
@@ -41,7 +41,7 @@ pt-BR:
         phone: Telefone
         cellphone: Celular
       packages:
-        plan: Plano
+        plan: Assinatura
         value: Valor
         expires_at: Data de venc.
         status: Estado

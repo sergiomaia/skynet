@@ -12,11 +12,11 @@
     <%= f.input :cellphone, input_html: { class: 'phone' } %>
 
     <div class="padding-bottom-15 padding-top-20">
-      <h5>Plano</h5>
+      <h5>Assinatura</h5>
     </div>
 
     <%= f.simple_fields_for :packages do |p| %>
-      <%= p.input :plan, collection: Package.plans, prompt: 'Selecione o plano', input_html: { class: 'custom-select' } %>
+      <%= p.input :plan, collection: Package.plans, prompt: 'Selecione a assinatura', input_html: { class: 'custom-select' } %>
       <%= p.input :value, as: :string, input_html: { class: 'money' } %>
       <%= p.input :expires_at, as: :string, input_html: { class: 'date' } %>
       <%= p.input :status, collection: Package.statuses, prompt: 'Selecione o estado', input_html: { class: 'custom-select' } %>

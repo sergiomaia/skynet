@@ -4,7 +4,7 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        format.html { redirect_back(fallback_location: root_path, notice: 'Plano foi atualizado com sucesso.') }
+        format.html { redirect_back(fallback_location: root_path, notice: 'Assinatura foi atualizado com sucesso.') }
         format.json { respond_with_bip(@package) }
       else
         format.html { redirect_back(fallback_location: root_path, notice: @package.errors.full_messages.join(', ')) }
