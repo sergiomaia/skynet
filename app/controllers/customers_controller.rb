@@ -32,6 +32,18 @@ class CustomersController < ApplicationController
     end
   end
 
+  def custom_table
+    if params[:type].include?('late_customers')
+      @custom_table = current_user.customers.includes(:packages).where('packages.expires_at < ?', Date.current).references(:packages)
+      @title = 'Clientes atrasados'
+    elsif params[:type].include?('late_today_customers')
+      @custom_table = current_user.customers.includes(:packages).where('packages.expires_at = ?', Date.current).references(:packages)
+      @title = 'Clientes - Vencem hoje'
+    else
+      redirect_back(fallback_location: root_path, notice: 'Algum erro aconteceu.')
+    end
+  end
+
   def update
     respond_to do |format|
       if @customer.update(customer_params)

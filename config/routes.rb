@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :gadget_allocations
 
   resources :customers do
+    get :custom_table, on: :collection
     resources :comments, only: [:create, :destroy]
   end
 

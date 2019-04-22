@@ -8,109 +8,69 @@
   <%= render 'notice' %>
 
   <div class="row">
-    <div class="col-6">
-      <h3 class="margin-bottom-20">Vencem hoje (<%= @late_today_customers.count %>)</h3>
-      <table class="table table-skynet table-skynet-index-simple table-striped table-hover header-fixed margin-none">
-        <thead>
-          <tr>
-            <th class="w-30">Nome</th>
-            <th class="w-40">Email</th>
-            <th class="w-30">Pagamento</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @late_today_customers.each_with_index do |customer, index| %>
-            <tr>
-              <td class="ellipsis">
-                <%= link_to customer.name, customer %>  <%# link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %>
-              </td>
-              <td>
-                <%= customer.email %>
-              </td>
-              <td>
-                <%= render 'payment_badge', payment: customer.payments.last %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-pastel card-header-icon">
+          <div class="card-icon">
+            <%=  fa_icon 'user' %>
+          </div>
+          <p class="card-category">Usuários cadastrados</p>
+          <h3 class="card-title"><%= current_user.customers.count %></h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <a href="/customers">Cadastrar novos...</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-6">
-      <h3 class="margin-bottom-20">Vencidas (<%= @late_today_customers.count %>)</h3>
-      <table class="table table-skynet table-skynet-index-simple table-striped table-hover header-fixed margin-none">
-        <thead>
-          <tr>
-            <th class="w-30">Nome</th>
-            <th class="w-40">Email</th>
-            <th class="w-30">Telefone</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @late_customers.each_with_index do |customer, index| %>
-            <tr>
-              <td class="ellipsis">
-                <%= link_to customer.name, customer %>  <%# link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %>
-              </td>
-              <td>
-                <%= customer.email %>
-              </td>
-              <td>
-                <%= customer.phone %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-pastel card-header-icon">
+          <div class="card-icon">
+            <%=  fa_icon 'wrench' %>
+          </div>
+          <p class="card-category">Equipamentos<br><br></p>
+          <h3 class="card-title"><%= current_user.gadgets.count %></h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <a href="/gadgets">Cadastrar novos...</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-6 margin-top-40">
-      <h3 class="margin-bottom-20">Últimos registros</h3>
-      <table class="table table-skynet table-skynet-index-simplest table-striped table-hover header-fixed margin-none">
-        <thead>
-          <tr>
-            <th class="w-50">Nome</th>
-            <th class="w-50">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @last_registered_customers.each_with_index do |customer, index| %>
-            <tr>
-              <td class="ellipsis">
-                <%= link_to customer.name, customer %>
-              </td>
-              <td>
-                <%= customer.email %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-pastel card-header-icon">
+          <div class="card-icon">
+            <%=  fa_icon 'close' %>
+          </div>
+          <p class="card-category">Clientes atrasados</p>
+          <h3 class="card-title"><%= @late_customers.count %></h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <%= link_to 'Conferir', custom_table_customers_path(type: 'late_customers') %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-6 margin-top-40">
-      <h3 class="margin-bottom-20">Aniversariantes do mês</h3>
-      <table class="table table-skynet table-skynet-index-simplest table-striped table-hover header-fixed margin-none">
-        <thead>
-          <tr>
-            <th class="w-30">Nome</th>
-            <th class="w-40">Email</th>
-            <th class="w-30">Telefone</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @birthday_today_customers.each_with_index do |customer, index| %>
-            <tr>
-              <td class="ellipsis">
-                <%= link_to customer.name, customer %>  <%# link_to '(+)', '/', data: { toggle: "collapse", target: "#collapse#{index}" }, aria: { expanded: "true", controls: "collapse#{index}" } %>
-              </td>
-              <td>
-                <%= customer.email %>
-              </td>
-              <td>
-                <%= customer.phone %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-pastel card-header-icon">
+          <div class="card-icon">
+            <%=  fa_icon 'warning' %>
+          </div>
+          <p class="card-category">Vencem hoje<br><br></p>
+          <h3 class="card-title"><%= @late_today_customers.count %></h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <%= link_to 'Conferir', custom_table_customers_path(type: 'late_today_customers') %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
