@@ -102,7 +102,7 @@
                   R$ <%= render 'best_in_place_field_single', field_title: 'Valor', record: package, field_name: 'value', type: 'money', value: package.value*10 %>
                 </td>
                 <td>
-                  <%= render 'best_in_place_field_single', field_title: 'Data de vencimento', record: package, field_name: 'expires_at', type: 'date', value: package.expires_at&.strftime('%d/%m/%Y') %>
+                  <%= render 'best_in_place_field_single', field_title: 'Data de vencimento', record: package, field_name: 'expires_at_day', type: 'date', value: package.expires_at_day %>
                 </td>
               </tr>
             <% end %>
