@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_235625) do
+ActiveRecord::Schema.define(version: 2019_04_24_112359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_235625) do
     t.uuid "customer_id"
     t.integer "plan"
     t.float "value"
-    t.date "expires_at"
+    t.integer "expires_at_day"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,11 +68,12 @@ ActiveRecord::Schema.define(version: 2019_03_28_235625) do
     t.boolean "paid", default: false
     t.float "value"
     t.date "paid_at"
-    t.date "expires_at"
+    t.integer "expires_at_day"
     t.uuid "package_id"
     t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "payment_month"
     t.index ["package_id"], name: "index_payments_on_package_id"
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
