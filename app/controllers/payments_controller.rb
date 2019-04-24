@@ -7,6 +7,14 @@ class PaymentsController < ApplicationController
 
   before_action :set_package, only: [:update]
 
+  def create_monthly_payments
+    unless @payment.payment_month != @payment.current_month
+      Payments::ExtractCustomersFromUserService.new(current_user).extract
+    else
+      flash[:notice] = 'Os pagamentos referente a esse mês já foram criados!'
+    end
+  end
+
   def update
     respond_to do |format|
       if @payment.update(payment_params)
@@ -30,6 +38,6 @@ class PaymentsController < ApplicationController
   end
 
   def payments_params
-    params.require(:payment).permit(:paid, :expires_at_day, :value, :paid_at, :package_id, :user_id)
+    params.require(:payment).permit(:paid, :expires_at_day, :value, :paid_at, :package_id, :user_id, :payment_month)
   end
 end
