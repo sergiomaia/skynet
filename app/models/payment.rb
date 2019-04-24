@@ -8,4 +8,7 @@ class Payment < ApplicationRecord
     pendente: 2
   }
 
+  def current_month
+    Date.current.month
+  end
 end
