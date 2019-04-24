@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.boolean :paid, default: false
       t.float :value
       t.date :paid_at
-      t.date :expires_at
+      t.integer :expires_at_day
       t.references :package, type: :uuid
       t.references :user, type: :uuid
 
