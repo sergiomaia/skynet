@@ -1,0 +1,143 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+$.applyDataMask	app/assets/javascripts/plugins/jquery.mask.js	/^    $.applyDataMask = function(selector) {$/;"	f
+$.fn.cleanVal	app/assets/javascripts/plugins/jquery.mask.js	/^    $.fn.cleanVal = function() {$/;"	f
+$.fn.mask	app/assets/javascripts/plugins/jquery.mask.js	/^    $.fn.mask = function(mask, options) {$/;"	f
+$.fn.masked	app/assets/javascripts/plugins/jquery.mask.js	/^    $.fn.masked = function(val) {$/;"	f
+$.fn.unmask	app/assets/javascripts/plugins/jquery.mask.js	/^    $.fn.unmask = function() {$/;"	f
+AddUserIdToCustomers	db/migrate/20190310140352_add_user_id_to_customers.rb	/^class AddUserIdToCustomers < ActiveRecord::Migration[5.2]$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Skynet
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Comment	app/models/comment.rb	/^class Comment < ApplicationRecord$/;"	c
+CommentsController	app/controllers/comments_controller.rb	/^class CommentsController < ApplicationController$/;"	c
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+CreateAllService	app/services/Payments/create_all_service.rb	/^  class CreateAllService < Struct.new(:customer, :user)$/;"	c	class:Payments
+CreateComments	db/migrate/20190310131334_create_comments.rb	/^class CreateComments < ActiveRecord::Migration[5.2]$/;"	c
+CreateCustomers	db/migrate/20190308004827_create_customers.rb	/^class CreateCustomers < ActiveRecord::Migration[5.2]$/;"	c
+CreateGadgets	db/migrate/20190309011708_create_gadgets.rb	/^class CreateGadgets < ActiveRecord::Migration[5.2]$/;"	c
+CreatePackages	db/migrate/20190309013521_create_packages.rb	/^class CreatePackages < ActiveRecord::Migration[5.2]$/;"	c
+CreatePaymentService	app/services/create_payment_service.rb	/^class CreatePaymentService < Struct.new(:package, :current_user)$/;"	c
+CreatePayments	db/migrate/20190322002153_create_payments.rb	/^class CreatePayments < ActiveRecord::Migration[5.2]$/;"	c
+CreatePaymentsWorker	app/workers/create_payments_worker.rb	/^class CreatePaymentsWorker$/;"	c
+CreateProtocols	db/migrate/20190326005646_create_protocols.rb	/^class CreateProtocols < ActiveRecord::Migration[5.2]$/;"	c
+CreateService	app/services/Payments/create_service.rb	/^  class CreateService < Struct.new(:package, :current_user)$/;"	c	class:Payments
+CreateTasks	db/migrate/20190328235625_create_tasks.rb	/^class CreateTasks < ActiveRecord::Migration[5.2]$/;"	c
+Customer	app/models/customer.rb	/^class Customer < ApplicationRecord$/;"	c
+CustomersController	app/controllers/customers_controller.rb	/^class CustomersController < ApplicationController$/;"	c
+DeviseCreateUsers	db/migrate/20190310130102_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[5.2]$/;"	c
+EnableUuidExtension	db/migrate/20190307234645_enable_uuid_extension.rb	/^class EnableUuidExtension < ActiveRecord::Migration[5.2]$/;"	c
+ExtractService	app/services/Payments/extract_service.rb	/^  class ExtractService < Struct.new(:user)$/;"	c	class:Payments
+Gadget	app/models/gadget.rb	/^class Gadget < ApplicationRecord$/;"	c
+GadgetAllocation	app/models/gadget_allocation.rb	/^class GadgetAllocation$/;"	c
+GadgetAllocationsController	app/controllers/gadget_allocations_controller.rb	/^class GadgetAllocationsController < ApplicationController$/;"	c
+GadgetsController	app/controllers/gadgets_controller.rb	/^class GadgetsController < ApplicationController$/;"	c
+HTMLAttributes	app/assets/javascripts/plugins/jquery.mask.js	/^    var HTMLAttributes = function () {$/;"	f
+Mask	app/assets/javascripts/plugins/jquery.mask.js	/^    var Mask = function (el, mask, options) {$/;"	f
+Mask.p.invalid	app/assets/javascripts/plugins/jquery.mask.js	/^            invalid: [],$/;"	p
+Package	app/models/package.rb	/^class Package < ApplicationRecord$/;"	c
+PackagesController	app/controllers/packages_controller.rb	/^class PackagesController < ApplicationController$/;"	c
+Payment	app/models/payment.rb	/^class Payment < ApplicationRecord$/;"	c
+Payments	app/services/Payments/create_all_service.rb	/^module Payments$/;"	m
+Payments	app/services/Payments/create_service.rb	/^module Payments$/;"	m
+Payments	app/services/Payments/extract_service.rb	/^module Payments$/;"	m
+PaymentsController	app/controllers/payments_controller.rb	/^class PaymentsController < ApplicationController$/;"	c
+Protocol	app/models/protocol.rb	/^class Protocol < ApplicationRecord$/;"	c
+ProtocolsController	app/controllers/protocols_controller.rb	/^class ProtocolsController < ApplicationController$/;"	c
+Skynet	config/application.rb	/^module Skynet$/;"	m
+Task	app/models/task.rb	/^class Task < ApplicationRecord$/;"	c
+TasksController	app/controllers/tasks_controller.rb	/^class TasksController < ApplicationController$/;"	c
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+WelcomeController	app/controllers/welcome_controller.rb	/^class WelcomeController < ApplicationController$/;"	c
+change	db/migrate/20190308004827_create_customers.rb	/^  def change$/;"	f	class:CreateCustomers
+change	db/migrate/20190309011708_create_gadgets.rb	/^  def change$/;"	f	class:CreateGadgets
+change	db/migrate/20190309013521_create_packages.rb	/^  def change$/;"	f	class:CreatePackages
+change	db/migrate/20190310130102_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20190310131334_create_comments.rb	/^  def change$/;"	f	class:CreateComments
+change	db/migrate/20190310140352_add_user_id_to_customers.rb	/^  def change$/;"	f	class:AddUserIdToCustomers
+change	db/migrate/20190322002153_create_payments.rb	/^  def change$/;"	f	class:CreatePayments
+change	db/migrate/20190326005646_create_protocols.rb	/^  def change$/;"	f	class:CreateProtocols
+change	db/migrate/20190328235625_create_tasks.rb	/^  def change$/;"	f	class:CreateTasks
+check	app/assets/javascripts/plugins/jquery.mask.js	/^                    check = function () {$/;"	f
+comment_params	app/controllers/comments_controller.rb	/^  def comment_params$/;"	f	class:CommentsController
+create	app/controllers/comments_controller.rb	/^  def create$/;"	f	class:CommentsController
+create	app/controllers/customers_controller.rb	/^  def create$/;"	f	class:CustomersController
+create	app/controllers/gadget_allocations_controller.rb	/^  def create$/;"	f	class:GadgetAllocationsController
+create	app/controllers/gadgets_controller.rb	/^  def create$/;"	f	class:GadgetsController.show.edit
+create	app/controllers/protocols_controller.rb	/^  def create$/;"	f	class:ProtocolsController
+create	app/controllers/tasks_controller.rb	/^  def create$/;"	f	class:TasksController.edit
+create_payment	app/services/Payments/create_service.rb	/^    def self.create_payment(package, current_user)$/;"	F	class:Payments.CreateService
+create_payment	app/services/create_payment_service.rb	/^  def self.create_payment(package, current_user)$/;"	F	class:CreatePaymentService
+customer_params	app/controllers/customers_controller.rb	/^  def customer_params$/;"	f	class:CustomersController
+dealloc	app/controllers/gadgets_controller.rb	/^  def dealloc$/;"	f	class:GadgetsController.show.edit
+destroy	app/controllers/comments_controller.rb	/^  def destroy$/;"	f	class:CommentsController
+destroy	app/controllers/customers_controller.rb	/^  def destroy$/;"	f	class:CustomersController
+destroy	app/controllers/gadgets_controller.rb	/^  def destroy$/;"	f	class:GadgetsController.show.edit
+destroy	app/controllers/payments_controller.rb	/^  def destroy$/;"	f	class:PaymentsController
+destroy	app/controllers/protocols_controller.rb	/^  def destroy$/;"	f	class:ProtocolsController
+destroy	app/controllers/tasks_controller.rb	/^  def destroy$/;"	f	class:TasksController.edit
+edit	app/controllers/customers_controller.rb	/^  def edit$/;"	f	class:CustomersController
+edit	app/controllers/gadgets_controller.rb	/^  def edit;end$/;"	f	class:GadgetsController.show
+edit	app/controllers/payments_controller.rb	/^  def edit$/;"	f	class:PaymentsController
+edit	app/controllers/tasks_controller.rb	/^  def edit;end$/;"	f	class:TasksController
+execute	app/services/Payments/create_all_service.rb	/^    def execute$/;"	f	class:Payments.CreateAllService
+extract	app/services/Payments/extract_service.rb	/^    def extract$/;"	f	class:Payments.ExtractService
+gadget_allocation_params	app/controllers/gadget_allocations_controller.rb	/^  def gadget_allocation_params$/;"	f	class:GadgetAllocationsController
+gadget_params	app/controllers/gadgets_controller.rb	/^  def gadget_params$/;"	f	class:GadgetsController.show.edit
+globals.dataMask	app/assets/javascripts/plugins/jquery.mask.js	/^        dataMask: true,$/;"	p
+globals.dataMaskAttr	app/assets/javascripts/plugins/jquery.mask.js	/^        dataMaskAttr: '*[data-mask]',$/;"	p
+globals.keyStrokeCompensation	app/assets/javascripts/plugins/jquery.mask.js	/^        keyStrokeCompensation: 10,$/;"	p
+globals.maskElements	app/assets/javascripts/plugins/jquery.mask.js	/^        maskElements: 'input,td,span,div',$/;"	p
+globals.useInput	app/assets/javascripts/plugins/jquery.mask.js	/^        useInput: !\/Chrome\\\/[2-4][0-9]|SamsungBrowser\/.test(window.navigator.userAgent) && eventSupported('input'),$/;"	p
+globals.watchInputs	app/assets/javascripts/plugins/jquery.mask.js	/^        watchInputs: true,$/;"	p
+globals.watchInterval	app/assets/javascripts/plugins/jquery.mask.js	/^        watchInterval: 300,$/;"	p
+index	app/controllers/customers_controller.rb	/^  def index$/;"	f	class:CustomersController
+index	app/controllers/gadgets_controller.rb	/^  def index$/;"	f	class:GadgetsController
+index	app/controllers/tasks_controller.rb	/^  def index$/;"	f	class:TasksController
+index	app/controllers/welcome_controller.rb	/^  def index$/;"	f	class:WelcomeController
+jMask.getCleanVal	app/assets/javascripts/plugins/jquery.mask.js	/^        jMask.getCleanVal = function() {$/;"	f
+jMask.getMaskedVal	app/assets/javascripts/plugins/jquery.mask.js	/^        jMask.getMaskedVal = function(val) {$/;"	f
+jMask.init	app/assets/javascripts/plugins/jquery.mask.js	/^       jMask.init = function(onlyMask) {$/;"	f
+jMask.remove	app/assets/javascripts/plugins/jquery.mask.js	/^        jMask.remove = function() {$/;"	f
+keyCode	app/assets/javascripts/plugins/jquery.mask.js	/^                var keyCode = el.data('mask-keycode');$/;"	v
+lastMaskCharDigit	app/assets/javascripts/plugins/jquery.mask.js	/^                var lastMaskCharDigit = mask.charAt(lastMaskChar);$/;"	v
+lastUntranslatedMaskChar	app/assets/javascripts/plugins/jquery.mask.js	/^                var lastUntranslatedMaskChar;$/;"	v
+new	app/controllers/customers_controller.rb	/^  def new$/;"	f	class:CustomersController
+new	app/controllers/gadgets_controller.rb	/^  def new$/;"	f	class:GadgetsController.show
+new	app/controllers/tasks_controller.rb	/^  def new$/;"	f	class:TasksController
+newVal	app/assets/javascripts/plugins/jquery.mask.js	/^                var newVal = buf.join('');$/;"	v
+oRecursive.digit	app/assets/javascripts/plugins/jquery.mask.js	/^                            oRecursive = {digit: mask.charAt(i), pattern: pattern};$/;"	p
+package_params	app/controllers/packages_controller.rb	/^  def package_params$/;"	f	class:PackagesController
+payments_params	app/controllers/payments_controller.rb	/^  def payments_params$/;"	f	class:PaymentsController
+perform	app/workers/create_payments_worker.rb	/^  def perform(*args)$/;"	f	class:CreatePaymentsWorker
+protocol_params	app/controllers/protocols_controller.rb	/^  def protocol_params$/;"	f	class:ProtocolsController
+register	app/models/gadget_allocation.rb	/^  def register$/;"	f	class:GadgetAllocation
+run	app/services/Payments/create_all_service.rb	/^    def self.run$/;"	F	class:Payments.CreateAllService
+set_comment	app/controllers/comments_controller.rb	/^  def set_comment$/;"	f	class:CommentsController
+set_customer	app/controllers/customers_controller.rb	/^  def set_customer$/;"	f	class:CustomersController
+set_gadget	app/controllers/gadgets_controller.rb	/^  def set_gadget$/;"	f	class:GadgetsController.show.edit
+set_package	app/controllers/packages_controller.rb	/^  def set_package$/;"	f	class:PackagesController
+set_payment	app/controllers/payments_controller.rb	/^  def set_payment$/;"	f	class:PaymentsController
+set_protocol	app/controllers/protocols_controller.rb	/^  def set_protocol$/;"	f	class:ProtocolsController
+set_task	app/controllers/tasks_controller.rb	/^  def set_task$/;"	f	class:TasksController.edit
+show	app/controllers/customers_controller.rb	/^  def show$/;"	f	class:CustomersController
+show	app/controllers/gadgets_controller.rb	/^  def show;end$/;"	f	class:GadgetsController
+system!	bin/setup	/^def system!(*args)$/;"	f
+system!	bin/update	/^def system!(*args)$/;"	f
+task_params	app/controllers/tasks_controller.rb	/^  def task_params$/;"	f	class:TasksController.edit
+up	db/migrate/20190307234645_enable_uuid_extension.rb	/^  def up$/;"	f	class:EnableUuidExtension
+update	app/controllers/customers_controller.rb	/^  def update$/;"	f	class:CustomersController
+update	app/controllers/gadgets_controller.rb	/^  def update$/;"	f	class:GadgetsController.show.edit
+update	app/controllers/packages_controller.rb	/^  def update$/;"	f	class:PackagesController
+update	app/controllers/payments_controller.rb	/^  def update$/;"	f	class:PaymentsController
+update	app/controllers/tasks_controller.rb	/^  def update$/;"	f	class:TasksController.edit

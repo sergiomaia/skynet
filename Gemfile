@@ -27,6 +27,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rb-readline'
   gem 'listen', '3.1.5'
   gem 'spring-watcher-listen', '2.0.0'
   gem "better_errors", '2.5'
