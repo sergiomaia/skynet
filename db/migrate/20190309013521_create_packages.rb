@@ -4,6 +4,7 @@ class CreatePackages < ActiveRecord::Migration[5.2]
       t.references :customer, type: :uuid
       t.integer :plan
       t.float :value
+      t.date  :expires_at
       t.integer :expires_at_day
       t.integer :status
 
