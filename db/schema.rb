@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_112359) do
     t.uuid "customer_id"
     t.integer "plan"
     t.float "value"
+    t.date "expires_at"
     t.integer "expires_at_day"
     t.integer "status"
     t.datetime "created_at", null: false
