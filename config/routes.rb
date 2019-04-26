@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :payments do
     collection do
-      post :create_monthly_payments
+      post :create_monthly
     end
   end
 
