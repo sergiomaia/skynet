@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_112359) do
     t.boolean "paid", default: false
     t.float "value"
     t.date "paid_at"
+    t.date "expires_at"
     t.integer "expires_at_day"
     t.uuid "package_id"
     t.uuid "user_id"
