@@ -1,18 +1,14 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:edit, :update, :destroy]
+  before_action :set_package, only: [:update]
 
   def edit
     @customer.payments.build
   end
 
-  before_action :set_package, only: [:update]
-
   def create_monthly_payments
-    unless @payment.payment_month != @payment.current_month
-      Payments::ExtractCustomersFromUserService.new(current_user).extract
-    else
-      flash[:notice] = 'Os pagamentos referente a esse mês já foram criados!'
-    end
+    Payments::ExtractCustomersFromUserService.new(current_user).extract
+    redirect_to @customer, notice: 'Os pagamentos referente a esse mês já foram criados!'
   end
 
   def update
