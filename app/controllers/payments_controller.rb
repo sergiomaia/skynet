@@ -7,8 +7,12 @@ class PaymentsController < ApplicationController
   end
 
   def create_monthly_payments
-    Payments::ExtractCustomersFromUserService.new(current_user).extract
-    redirect_to @customer, notice: 'Os pagamentos referente a esse mês já foram criados!'
+    service = Payments::ExtractCustomersFromUserService.new(current_user).extract
+    if service
+      redirect_to @customer, notice: 'Os pagamentos foram gerados com sucesso!'
+    else
+      redirect_to @customer, notice: 'Deu merda!'
+    end
   end
 
   def update
