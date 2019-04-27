@@ -1,0 +1,22 @@
+<div class="modal fade" id="create-monthly-payments-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content padding-30">
+      <div class="modal-header">
+        <h5>Importante!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body margin-top-30">
+        <p>
+          Essa ação irá criar os pagamentos de todos os clientes referente ao mês atual. Todos os pagamentos
+          estarão "pendentes", para marcar como "pago" ou alterar qualquer valor, você precisa ir na listagem de clientes e clicar no ícone amarelo.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Gerar pagamentos', create_monthly_payments_payments_path, class: "btn btn-230 btn-danger" %>
+        <button type="button" class="btn btn-230 btn-success" data-dismiss="modal">Agora não</button>
+      </div>
+    </div>
+  </div>
+</div>
