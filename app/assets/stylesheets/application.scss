@@ -134,3 +134,23 @@ table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #5e98
   font-size: 12px;
   line-height: 1.42857;
 }
+
+/* avatar circle on customers index */
+.btn-purple {
+   height: 107%;
+   width: 80%;
+   text-align: center;
+   border-radius: 50%;
+   background-color: #ddd;
+}
+
+.btn-purple a{
+  font-weight: bold;
+  color: #856EC6;
+}
+
+/* pagination */
+.page-item.active .page-link{
+  background-color: #856EC6;
+  border-color: #856EC6;
+}
