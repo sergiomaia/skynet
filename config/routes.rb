@@ -4,11 +4,10 @@ Rails.application.routes.draw do
   resources :packages
   resources :comments
   resources :protocols
+  resources :payments
 
-  resources :payments do
-    collection do
-      post :create_monthly
-    end
+  resource :payments do
+    post :create_monthly_payments
   end
 
   resources :gadgets do
