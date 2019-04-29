@@ -28,8 +28,8 @@
     <tbody id="accordion">
       <% @customers.each_with_index do |customer, index| %>
         <tr id="headingOne">
-          <td class="ellipsis">
-            <span class="btn btn-purple btn-circle">
+          <td class="ellipsis position-relative">
+            <span class="btn btn-purple btn-circle-avatar btn-rel">
               <%= link_to customer.initials_letter, customer %>
             </span>
           </td>
@@ -38,7 +38,7 @@
           </td>
           <td class="ellipsis"><%= customer.email %></td>
           <td><%= customer.cellphone %></td>
-          <td>
+          <td class="position-relative">
             <%= render 'payment_badge', payment: customer.payments.last %>
           </td>
           <td>

@@ -1,5 +1,5 @@
 <% if payment.paid == false %>
-  <%= link_to '#', class: "btn btn-warning btn-circle", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
+  <%= link_to '#', class: "btn btn-purple btn-circle btn-rel", data: { toggle: "modal", target: "#new-payment-modal" }  do %>
     <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Atualizar pagamento' %>
   <% end %>
 <% elsif payment.expires_at > Date.current %>
