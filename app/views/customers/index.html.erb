@@ -1,10 +1,7 @@
 <div class="container container-skynet">
   <div class="container-title margin-bottom-50 clearfix">
     <h2>
-      Clientes
-      <% if current_user.admin? %>
-        <%= link_to '+', new_user_registration_path %>
-      <% end %>
+      Lista de clientes
       <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-customer-modal'>
         <%=  fa_icon 'plus' %> Novo cliente
       </button>
