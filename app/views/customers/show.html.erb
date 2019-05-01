@@ -132,7 +132,7 @@
             <div class="card-body">
               <%= sanitize(comment.body) %>
               <br>
-              <em><%= "Feito às #{comment.created_at.strftime('%d/%m/%Y às %H:%m')}" %></em>
+              <em><%= "Adicionado em #{comment.created_at.strftime('%d/%m/%Y às %H:%m')}" %></em>
             </div>
           </div>
         <% end %>
@@ -155,7 +155,7 @@
         <thead>
           <tr>
             <td class="w-50">Protocolo</td>
-            <td class="w-50">Data de ligação</td>
+            <td class="w-50">Data da ligação</td>
           </tr>
         </thead>
         <tbody>
