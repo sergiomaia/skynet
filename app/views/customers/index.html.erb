@@ -2,13 +2,17 @@
   <div class="container-title margin-bottom-50 clearfix">
     <h2>
       Clientes
+      <% if current_user.admin? %>
+        <%= link_to '+', new_user_registration_path %>
+      <% end %>
       <button type="button" name="button" class="btn btn-230 btn-success float-right" data-toggle='modal' data-target='#new-customer-modal'>
         <%=  fa_icon 'plus' %> Novo cliente
       </button>
-
-      <button type="button" name="button" class="btn btn-230 btn-danger float-right" data-toggle='modal' data-target='#create-monthly-payments-modal'>
-        <%=  fa_icon 'usd' %> Pagamentos mês <span class="badge badge-light"> <%= Date.current.month %></span>
-      </button>
+      <% unless @customers.count.zero?  %>
+        <button type="button" name="button" class="btn btn-230 btn-danger float-right"   data-toggle='modal' data-target='#create-monthly-payments-modal'>
+          <%=  fa_icon 'usd' %> Pagamentos mês <span class="badge badge-light"> <%= Date.current.month %></span>
+        </button>
+      <% end %>
     </h2>
   </div>
 
