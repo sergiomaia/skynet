@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   resources :tasks
-  devise_for :users
   resources :packages
   resources :comments
   resources :protocols
   resources :payments
+
+  devise_for :users, controllers: { :registrations => "registrations" }
+  as :user do
+    get "/register", to: "registrations#new", as: "register"
+  end
 
   resource :payments do
     post :create_monthly_payments
