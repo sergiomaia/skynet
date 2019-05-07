@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :packages
   resources :comments
   resources :protocols
-  resources :payments
+  resources :payments do
+    post :update_last_payment, on: :collection
+  end
 
   devise_for :users, controllers: { :registrations => "registrations" }
   as :user do

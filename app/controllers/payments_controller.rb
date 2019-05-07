@@ -2,6 +2,17 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: [:edit, :update, :destroy]
   before_action :set_package, only: [:update]
 
+  def update_last_payment
+    @payment = Package.find(payments_params[:package_id]).payments.last
+    respond_to do |format|
+      if @payment.update(payments_params)
+        format.html { redirect_back(fallback_location: root_path, notice: 'Pagamento foi atualizado com sucesso.') }
+      else
+        format.html { redirect_back(fallback_location: root_path, notice: @payment.errors.full_messages.join(', ')) }
+      end
+    end
+  end
+
   def edit
     @customer.payments.build
   end
@@ -17,7 +28,7 @@ class PaymentsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @payment.update(payment_params)
+      if @payment.update(payments_params)
         format.html { redirect_back(fallback_location: root_path, notice: 'Pagamento foi atualizado com sucesso.') }
       else
         format.html { redirect_back(fallback_location: root_path, notice: @payment.errors.full_messages.join(', ')) }

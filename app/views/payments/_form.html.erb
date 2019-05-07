@@ -1,4 +1,4 @@
-<%= simple_form_for customer.payments.build do |f| %>
+<%= simple_form_for customer.payments.build, url: update_last_payment_payments_path, method: :post do |f| %>
 	<%= f.error_notification %>
 	<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -7,7 +7,6 @@
     <%= f.input :paid_at, as: :string, input_html: { class: 'date' } %>
     <%= f.input :expires_at_day, as: :string, input_html: { class: 'date' } %>
 	  <%= f.input :package_id, as: :hidden %>
-    <%= f.input :user_id, as: :hidden %>
 	</div>
 
 	<div class="form-actions form-group">

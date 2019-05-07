@@ -60,8 +60,7 @@
 </div>
 
 <%= render 'customers/new_modal' %>
-<%= render 'payments/new_modal', customer: @customer %>
-<%# FIXME should user current_user.gadgets %>
+<%= render 'payments/set_modal', customer: @customer %>
 <%= render 'gadgets/set_modal', gadgets: current_user.gadgets, gadget_allocation: @gadget_allocation %>
 <%= render 'payments/create-monthly-payments-modal' %>
 
@@ -72,6 +71,14 @@
       if ($('.set-gadget-btn')) {
         $('.set-gadget-btn').on("click", function () {
           $('#gadget_allocation_customer_id').val($(this).data('cid'))
+        });
+      }
+      if ($('.set-payment-btn')) {
+        $('.set-payment-btn').on("click", function () {
+          $('#payment_value').val($(this).data('pValue'))
+          $('#payment_paid_at').val($(this).data('pPaidAt'))
+          $('#payment_expires_at_day').val($(this).data('pExpiresAtDay'))
+          $('#payment_package_id').val($(this).data('pid'))
         });
       }
     });

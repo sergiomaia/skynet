@@ -57,6 +57,7 @@ pt-BR:
         value: Valor pago
         paid_at: Data de pgto.
         expires_at: Data de venc.
+        expires_at_day: Dia de venc.
   date:
     abbr_day_names:
     - Dom
