@@ -11,4 +11,16 @@ class Payment < ApplicationRecord
   def current_month
     Date.current.month
   end
+
+  def expires_today
+    unless self.expires_at.nil?
+      self.expires_at == Date.current
+    end
+  end
+
+  def late
+    unless self.expires_at.nil?
+      self.expires_at > Date.current
+    end
+  end
 end
