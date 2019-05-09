@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
     @payment = Package.find(payments_params[:package_id]).payments.last
     respond_to do |format|
       if @payment.update(payments_params)
+        @payment.update(paid: true)
         format.html { redirect_back(fallback_location: root_path, notice: 'Pagamento foi atualizado com sucesso.') }
       else
         format.html { redirect_back(fallback_location: root_path, notice: @payment.errors.full_messages.join(', ')) }
