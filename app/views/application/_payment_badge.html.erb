@@ -1,17 +1,17 @@
 <% if payment.paid == false %>
   <%= link_to '#', class: "btn btn-purple btn-circle btn-rel set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
-    <%=  fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Atualizar pagamento' %>
+    <%= fa_icon 'pencil', data: { toggle: 'tooltip' }, title: 'Atualizar pagamento' %>
   <% end %>
-<% elsif payment.expires_at > Date.current %>
-  <%= link_to '#', class: "btn btn-warning btn-danger set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
+<% elsif payment.late %>
+  <%= link_to '#', class: "btn btn-warning btn-danger btn-circle btn-rel set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
     <%=  fa_icon 'times', data: { toggle: 'tooltip' }, title: 'Atrasado' %>
   <% end %>
-<% elsif payment.expires_at == Date.current %>
-  <%= link_to '#', class: "btn btn-warning btn-info set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
+<% elsif payment.expires_today %>
+  <%= link_to '#', class: "btn btn-warning btn-circle btn-rel set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
     <%=  fa_icon 'check', data: { toggle: 'tooltip' }, title: 'Vence hoje' %>
   <% end %>
 <% else %>
-  <%= link_to '#', class: "btn btn-warning btn-success set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
-    <%=  fa_icon 'heart', data: { toggle: 'tooltip' }, title: 'Em dia' %>
+  <%= link_to '#', class: "btn btn-success btn-circle btn-rel set-payment-btn", data: { toggle: "modal", target: "#new-payment-modal", p_value: payment.value, p_paid_at: payment.paid_at, p_expires_at_day: payment.expires_at_day, pid: payment.package.id } do %>
+    <%= fa_icon 'heart', data: { toggle: 'tooltip' }, title: 'Em dia' %>
   <% end %>
 <% end %>
