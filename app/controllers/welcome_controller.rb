@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @late_customers = current_user.customers.includes(:packages).where('packages.expires_at_day < ?', Date.current.month).references(:packages)
-    @late_today_customers = current_user.customers.includes(:packages).where('packages.expires_at_day = ?', Date.current.day).references(:packages)
+    @late_customers = LateCustomersQuery.late_users(current_user)
+    @late_today_customers = LateTodayCustomersQuery.late_today(current_user)
   end
 end
