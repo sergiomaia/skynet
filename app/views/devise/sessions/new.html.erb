@@ -1,24 +1,14 @@
-<div class="container container-skynet">
-  <div class="container-title margin-bottom-50 clearfix">
-    <h2>Login</h2>
+<div class="wrapper">
+  <div class="form-signin">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h3 class="form-signin-heading">Login</h3>
+      <hr class="colorgraph"><br>
+      <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: "form-control" } %>
+      <%= f.input :password, required: false, input_html: { autocomplete: "current-password", class: "form-control" } %>
+      <%= f.button :submit, "Entrar", class: 'btn btn-lg btn-primary btn-block' %>
+    <% end %>
+    <% if User.count.zero? || (user_signed_in? && current_user.admin?) %>
+      <%= render "devise/shared/links" %>
+    <% end %>
   </div>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group margin-bottom-30">
-      <%= f.input :email,
-        required: false,
-        autofocus: true,
-        input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-        required: false,
-        input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Entrar", class: 'btn btn-blue margin-bottom-10' %>
-    </div>
-  <% end %>
-  <% if User.count.zero? || (user_signed_in? && current_user.admin?) %>
-    <%= render "devise/shared/links" %>
-  <% end %>
 </div>
