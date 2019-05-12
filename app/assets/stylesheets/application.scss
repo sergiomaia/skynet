@@ -198,6 +198,11 @@ table.table-skynet tr:hover td a.action-icon { pointer-events:auto; color: #5e98
   padding: 10px;
 }
 
+input{
+  overflow: visible;
+  margin-bottom: 5px;
+}
+
 input[type="text"] {
   margin-bottom: 0px;
   border-bottom-left-radius: 0;
