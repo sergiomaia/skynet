@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="form-signin">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <h3 class="form-signin-heading">Login</h3>
+      <h3 class="form-signin-heading">Entrar no Skynet</h3>
       <hr class="colorgraph"><br>
       <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: "form-control" } %>
       <%= f.input :password, required: false, input_html: { autocomplete: "current-password", class: "form-control" } %>
