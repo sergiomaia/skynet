@@ -116,34 +116,9 @@
 
 		</div>
 		<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
-      <div class="margin-bottom-30">
-        <%= render 'comments/form', customer: @customer %>
+      <div id="comment_content">
+        <%= render 'comment_tab_content', customer: @customer %>
       </div>
-      <% if @customer.reload.comments.any? %>
-        <% @customer.reload.comments.each_with_index do |comment, index| %>
-          <div class="card margin-bottom-30">
-            <h5 class="card-header card-skynet">
-              <%= "Comentário #{index}" %>
-
-              <%= link_to comment_path(comment), class: 'action-icon float-right', data: { confirm: 'Tem certeza?' }, method: :delete do %>
-                <%=  fa_icon 'close', data: { toggle: 'tooltip' }, title: 'Remover' %>
-              <% end %>
-            </h5>
-            <div class="card-body">
-              <%= sanitize(comment.body) %>
-              <br>
-              <em><%= "Adicionado em #{comment.created_at.strftime('%d/%m/%Y às %H:%m')}" %></em>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="card">
-          <h5 class="card-header card-skynet"></h5>
-          <div class="card-body">
-            Não há comentários.
-          </div>
-        </div>
-      <% end %>
 		</div>
 		<div class="tab-pane fade" id="nav-protocol" role="tabpanel" aria-labelledby="nav-protocol-tab">
       <div class="margin-bottom-30">

@@ -1,0 +1,13 @@
+<div class="margin-bottom-30">
+  <%= render 'comments/form', customer: customer %>
+</div>
+<% if customer.reload.comments.any? %>
+  <%= render partial: 'comments/comment', collection: customer.comments %>
+<% else %>
+  <div class="card">
+    <h5 class="card-header card-skynet"></h5>
+    <div class="card-body">
+      Não há comentários.
+    </div>
+  </div>
+<% end %>

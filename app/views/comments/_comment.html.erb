@@ -1,1 +1,13 @@
-<%= raw comment.body %>
+<div class="card margin-bottom-30">
+  <h5 class="card-header card-skynet">
+    <%= "Comentário #{comment_counter}" %>
+    <%= link_to comment_path(comment, format: :js), class: 'action-icon float-right', data: { confirm: 'Tem certeza?' }, method: :delete, remote: true do %>
+      <%=  fa_icon 'close', data: { toggle: 'tooltip' }, title: 'Remover' %>
+    <% end %>
+  </h5>
+  <div class="card-body">
+    <%= sanitize(comment.body) %>
+    <br>
+    <em><%= "Adicionado em #{comment.created_at.strftime('%d/%m/%Y às %H:%m')}" %></em>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<%= simple_form_for customer.comments.build do |f| %>
+<%= simple_form_for customer.comments.build, format: :js, remote: true do |f| %>
   <%= f.input :body, as: :trix_editor %>
   <%= f.input :customer_id, as: :hidden %>
   <%= f.button :submit, 'Salvar comentário', class: 'btn btn-success margin-top-20'%>

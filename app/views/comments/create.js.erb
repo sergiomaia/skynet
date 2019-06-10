@@ -1,0 +1,4 @@
+<% if @valid %>
+  $('#comment_content').html("<%= j render partial: 'comment_tab_content', locals: { customer: @customer } %>")
+<% end %>
+alert("<%= "#{@message}" %>")

@@ -3,17 +3,28 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params.merge(user: current_user))
-    if @comment.save
-      redirect_back(fallback_location: root_path, notice: 'Comentário criado com sucesso.')
+    @valid = @comment.save
+    @message = if @valid
+      @customer = @comment.customer
+      'Comentário criado com sucesso.'
     else
-      redirect_back(fallback_location: root_path, notice: @comment.errors.full_messages.join(', '))
+      @comment.errors.full_messages.join(', ')
+    end
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_back(fallback_location: root_path, notice: @message) }
     end
   end
 
   def destroy
     @customer = @comment.customer
     @comment.destroy
-    redirect_to @customer, notice: 'O comentário foi removido.'
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_back(fallback_location: root_path, notice: 'O comentário foi removido.') }
+    end
   end
 
   private
