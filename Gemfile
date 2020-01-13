@@ -11,7 +11,7 @@ gem 'uglifier', '4.1.18'
 gem 'turbolinks', '5'
 gem 'bootsnap', '1.1.0', require: false
 gem 'jquery-rails', '4.3.3'
-gem 'simple_form', '4.1'
+gem 'simple_form', '5.0.0'
 gem 'devise', '4.6'
 gem 'bootstrap', '4.3.1'
 gem 'sprockets-rails', '3.2.1'
