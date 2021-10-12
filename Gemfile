@@ -5,7 +5,7 @@ ruby '2.5.1'
 
 gem 'rails', '5.2.2'
 gem 'pg', '1.0.0'
-gem 'puma', '3.12.2'
+gem 'puma', '4.3.9'
 gem 'sass-rails', '5.0.7'
 gem 'uglifier', '4.1.18'
 gem 'turbolinks', '5'
